@@ -1,0 +1,3966 @@
+/* AP Assistant knowledge base — 1,065 natural-language Q&A examples.
+   This file is intentionally static. It helps the browser demo answer common questions.
+   For open-ended/current answers, connect the app to a real AI backend as described in README.md.
+*/
+const KNOWLEDGE_BASE = [
+  {
+    "questions": [
+      "Hi",
+      "Hello",
+      "Hey, how are you?",
+      "Can you say hello?",
+      "What's up?"
+    ],
+    "keywords": [
+      "can you say hello",
+      "greeting",
+      "hello",
+      "hey, how are you",
+      "hi",
+      "what's up"
+    ],
+    "answer": "Hello! I'm AP Assistant. I'm here to help with questions, writing, learning, coding, planning, and everyday tasks."
+  },
+  {
+    "questions": [
+      "How are you?",
+      "How are you doing?",
+      "Are you okay?",
+      "How's it going?",
+      "How are things?"
+    ],
+    "keywords": [
+      "are",
+      "are you okay",
+      "how",
+      "how are things",
+      "how are you",
+      "how are you doing",
+      "how's it going",
+      "you"
+    ],
+    "answer": "I'm doing well and ready to help. What would you like to work on?"
+  },
+  {
+    "questions": [
+      "Good morning",
+      "Morning!",
+      "Can you wish me a good morning?",
+      "What do you say in the morning?",
+      "Say good morning"
+    ],
+    "keywords": [
+      "can you wish me a good morning",
+      "good",
+      "good morning",
+      "morning",
+      "morning!",
+      "say good morning",
+      "what do you say in the morning"
+    ],
+    "answer": "Good morning! I hope your day is going well. What can I help you with?"
+  },
+  {
+    "questions": [
+      "Good night",
+      "Can you say good night?",
+      "What should I say before bed?",
+      "Say good night",
+      "I am going to sleep"
+    ],
+    "keywords": [
+      "can you say good night",
+      "good",
+      "good night",
+      "i am going to sleep",
+      "night",
+      "say good night",
+      "what should i say before bed"
+    ],
+    "answer": "Good night! If you're finishing something, I can help you plan the last steps or prepare for tomorrow."
+  },
+  {
+    "questions": [
+      "Thanks",
+      "Thank you",
+      "Thanks for your help",
+      "I appreciate it",
+      "How do I thank you?"
+    ],
+    "keywords": [
+      "how do i thank you",
+      "i appreciate it",
+      "thank you",
+      "thanks",
+      "thanks for your help"
+    ],
+    "answer": "You're welcome! I'm happy to help."
+  },
+  {
+    "questions": [
+      "Bye",
+      "Goodbye",
+      "See you later",
+      "I have to go",
+      "Talk to you later"
+    ],
+    "keywords": [
+      "bye",
+      "goodbye",
+      "i have to go",
+      "see you later",
+      "talk to you later"
+    ],
+    "answer": "Goodbye! Come back whenever you need help."
+  },
+  {
+    "questions": [
+      "Who are you?",
+      "What are you?",
+      "What's your name?",
+      "Tell me about yourself",
+      "Introduce yourself"
+    ],
+    "keywords": [
+      "are",
+      "introduce yourself",
+      "tell me about yourself",
+      "what are you",
+      "what's your name",
+      "who",
+      "who are you",
+      "you"
+    ],
+    "answer": "I'm AP Assistant, a web-based AI assistant built for this project."
+  },
+  {
+    "questions": [
+      "Who created you?",
+      "Who built you?",
+      "Who made this assistant?",
+      "Who is behind AP Assistant?",
+      "Who is your creator?"
+    ],
+    "keywords": [
+      "creator",
+      "who built you",
+      "who created you",
+      "who is behind ap assistant",
+      "who is your creator",
+      "who made this assistant"
+    ],
+    "answer": "This assistant interface was built by AP Web Designer. Its knowledge and behavior can be expanded by connecting it to an AI model and a larger knowledge system."
+  },
+  {
+    "questions": [
+      "What is what can you do?",
+      "Can you explain what can you do?",
+      "Tell me about what can you do.",
+      "How does what can you do work?",
+      "Can you help me with what can you do?"
+    ],
+    "keywords": [
+      "can",
+      "can you explain what can you do",
+      "can you help me with what can you do",
+      "do",
+      "how does what can you do work",
+      "tell me about what can you do.",
+      "what",
+      "what is what can you do",
+      "you"
+    ],
+    "answer": "I can help explain concepts, draft and rewrite text, brainstorm ideas, help with code, solve many math problems, organize information, and plan tasks. A static knowledge base cannot reliably answer every possible question."
+  },
+  {
+    "questions": [
+      "What is limitations?",
+      "Can you explain limitations?",
+      "Tell me about limitations.",
+      "How does limitations work?",
+      "Can you help me with limitations?"
+    ],
+    "keywords": [
+      "can you explain limitations",
+      "can you help me with limitations",
+      "how does limitations work",
+      "limitations",
+      "tell me about limitations.",
+      "what is limitations"
+    ],
+    "answer": "A fixed knowledge base only knows what has been stored in it. It can also be outdated. For current facts, live search or an AI model with current tools is needed."
+  },
+  {
+    "questions": [
+      "What is how to ask?",
+      "Can you explain how to ask?",
+      "Tell me about how to ask.",
+      "How does how to ask work?",
+      "Can you help me with how to ask?"
+    ],
+    "keywords": [
+      "ask",
+      "can you explain how to ask",
+      "can you help me with how to ask",
+      "how",
+      "how does how to ask work",
+      "tell me about how to ask.",
+      "to",
+      "what is how to ask"
+    ],
+    "answer": "Ask your question naturally and include useful context, such as your goal, audience, constraints, or an example. Clear context usually produces a better answer."
+  },
+  {
+    "questions": [
+      "What is explain simply?",
+      "Can you explain explain simply?",
+      "Tell me about explain simply.",
+      "How does explain simply work?",
+      "Can you help me with explain simply?"
+    ],
+    "keywords": [
+      "can you explain explain simply",
+      "can you help me with explain simply",
+      "explain",
+      "how does explain simply work",
+      "simply",
+      "tell me about explain simply.",
+      "what is explain simply"
+    ],
+    "answer": "I can explain a topic in simple language, step by step, with examples and analogies."
+  },
+  {
+    "questions": [
+      "What is explain deeply?",
+      "Can you explain explain deeply?",
+      "Tell me about explain deeply.",
+      "How does explain deeply work?",
+      "Can you help me with explain deeply?"
+    ],
+    "keywords": [
+      "can you explain explain deeply",
+      "can you help me with explain deeply",
+      "deeply",
+      "explain",
+      "how does explain deeply work",
+      "tell me about explain deeply.",
+      "what is explain deeply"
+    ],
+    "answer": "I can give a deeper explanation with definitions, assumptions, examples, edge cases, and practical implications."
+  },
+  {
+    "questions": [
+      "What is summarize?",
+      "Can you explain summarize?",
+      "Tell me about summarize.",
+      "How does summarize work?",
+      "Can you help me with summarize?"
+    ],
+    "keywords": [
+      "can you explain summarize",
+      "can you help me with summarize",
+      "how does summarize work",
+      "summarize",
+      "tell me about summarize.",
+      "what is summarize"
+    ],
+    "answer": "A good summary keeps the main ideas, removes repetition, and preserves important caveats. You can paste text and ask for a short, medium, or detailed summary."
+  },
+  {
+    "questions": [
+      "What is rewrite?",
+      "Can you explain rewrite?",
+      "Tell me about rewrite.",
+      "How does rewrite work?",
+      "Can you help me with rewrite?"
+    ],
+    "keywords": [
+      "can you explain rewrite",
+      "can you help me with rewrite",
+      "how does rewrite work",
+      "rewrite",
+      "tell me about rewrite.",
+      "what is rewrite"
+    ],
+    "answer": "I can rewrite text to be clearer, shorter, friendlier, more professional, more persuasive, or more natural while keeping the intended meaning."
+  },
+  {
+    "questions": [
+      "What is grammar?",
+      "Can you explain grammar?",
+      "Tell me about grammar.",
+      "How does grammar work?",
+      "Can you help me with grammar?"
+    ],
+    "keywords": [
+      "can you explain grammar",
+      "can you help me with grammar",
+      "grammar",
+      "how does grammar work",
+      "tell me about grammar.",
+      "what is grammar"
+    ],
+    "answer": "For grammar help, provide the sentence or paragraph and I can correct it and explain the important changes."
+  },
+  {
+    "questions": [
+      "What is translation?",
+      "Can you explain translation?",
+      "Tell me about translation.",
+      "How does translation work?",
+      "Can you help me with translation?"
+    ],
+    "keywords": [
+      "can you explain translation",
+      "can you help me with translation",
+      "how does translation work",
+      "tell me about translation.",
+      "translation",
+      "what is translation"
+    ],
+    "answer": "I can translate text between many languages. For important legal, medical, or business text, human review is recommended."
+  },
+  {
+    "questions": [
+      "What is email?",
+      "Can you explain email?",
+      "Tell me about email.",
+      "How does email work?",
+      "Can you help me with email?"
+    ],
+    "keywords": [
+      "can you explain email",
+      "can you help me with email",
+      "email",
+      "how does email work",
+      "tell me about email.",
+      "what is email"
+    ],
+    "answer": "A useful email normally has a clear subject, greeting, purpose, relevant details, and a concise call to action."
+  },
+  {
+    "questions": [
+      "What is cover letter?",
+      "Can you explain cover letter?",
+      "Tell me about cover letter.",
+      "How does cover letter work?",
+      "Can you help me with cover letter?"
+    ],
+    "keywords": [
+      "can you explain cover letter",
+      "can you help me with cover letter",
+      "cover",
+      "how does cover letter work",
+      "letter",
+      "tell me about cover letter.",
+      "what is cover letter"
+    ],
+    "answer": "A cover letter should connect your relevant experience to the role, use specific evidence, and avoid repeating the entire résumé."
+  },
+  {
+    "questions": [
+      "What is resume?",
+      "Can you explain resume?",
+      "Tell me about resume.",
+      "How does resume work?",
+      "Can you help me with resume?"
+    ],
+    "keywords": [
+      "can you explain resume",
+      "can you help me with resume",
+      "how does resume work",
+      "resume",
+      "tell me about resume.",
+      "what is resume"
+    ],
+    "answer": "A strong résumé is concise, tailored to the role, and focused on measurable achievements rather than only duties."
+  },
+  {
+    "questions": [
+      "What is interview?",
+      "Can you explain interview?",
+      "Tell me about interview.",
+      "How does interview work?",
+      "Can you help me with interview?"
+    ],
+    "keywords": [
+      "can you explain interview",
+      "can you help me with interview",
+      "how does interview work",
+      "interview",
+      "tell me about interview.",
+      "what is interview"
+    ],
+    "answer": "For interview preparation, practice concise answers using a situation, action, and result structure, then prepare questions for the interviewer."
+  },
+  {
+    "questions": [
+      "What is brainstorm?",
+      "Can you explain brainstorm?",
+      "Tell me about brainstorm.",
+      "How does brainstorm work?",
+      "Can you help me with brainstorm?"
+    ],
+    "keywords": [
+      "brainstorm",
+      "can you explain brainstorm",
+      "can you help me with brainstorm",
+      "how does brainstorm work",
+      "tell me about brainstorm.",
+      "what is brainstorm"
+    ],
+    "answer": "Brainstorming works best when you first generate many ideas without judging them, then group, refine, and select ideas using clear criteria."
+  },
+  {
+    "questions": [
+      "What is decision making?",
+      "Can you explain decision making?",
+      "Tell me about decision making.",
+      "How does decision making work?",
+      "Can you help me with decision making?"
+    ],
+    "keywords": [
+      "can you explain decision making",
+      "can you help me with decision making",
+      "decision",
+      "how does decision making work",
+      "making",
+      "tell me about decision making.",
+      "what is decision making"
+    ],
+    "answer": "For a decision, list the options, criteria, constraints, risks, and trade-offs. Then compare them rather than relying only on intuition."
+  },
+  {
+    "questions": [
+      "What is goal setting?",
+      "Can you explain goal setting?",
+      "Tell me about goal setting.",
+      "How does goal setting work?",
+      "Can you help me with goal setting?"
+    ],
+    "keywords": [
+      "can you explain goal setting",
+      "can you help me with goal setting",
+      "goal",
+      "how does goal setting work",
+      "setting",
+      "tell me about goal setting.",
+      "what is goal setting"
+    ],
+    "answer": "A useful goal states what you want, how you will measure progress, and a realistic deadline. Break it into small actions."
+  },
+  {
+    "questions": [
+      "What is productivity?",
+      "Can you explain productivity?",
+      "Tell me about productivity.",
+      "How does productivity work?",
+      "Can you help me with productivity?"
+    ],
+    "keywords": [
+      "can you explain productivity",
+      "can you help me with productivity",
+      "how does productivity work",
+      "productivity",
+      "tell me about productivity.",
+      "what is productivity"
+    ],
+    "answer": "Productivity is usually improved by choosing a small number of priorities, reducing distractions, and turning vague tasks into concrete next actions."
+  },
+  {
+    "questions": [
+      "What is to do list?",
+      "Can you explain to do list?",
+      "Tell me about to do list.",
+      "How does to do list work?",
+      "Can you help me with to do list?"
+    ],
+    "keywords": [
+      "can you explain to do list",
+      "can you help me with to do list",
+      "do",
+      "how does to do list work",
+      "list",
+      "tell me about to do list.",
+      "to",
+      "what is to do list"
+    ],
+    "answer": "A useful to-do list contains specific actions, not broad projects. Prioritize by importance and deadline."
+  },
+  {
+    "questions": [
+      "What is time management?",
+      "Can you explain time management?",
+      "Tell me about time management.",
+      "How does time management work?",
+      "Can you help me with time management?"
+    ],
+    "keywords": [
+      "can you explain time management",
+      "can you help me with time management",
+      "how does time management work",
+      "management",
+      "tell me about time management.",
+      "time",
+      "what is time management"
+    ],
+    "answer": "Estimate tasks, schedule important work, leave buffer time, and review the plan when circumstances change."
+  },
+  {
+    "questions": [
+      "What is study plan?",
+      "Can you explain study plan?",
+      "Tell me about study plan.",
+      "How does study plan work?",
+      "Can you help me with study plan?"
+    ],
+    "keywords": [
+      "can you explain study plan",
+      "can you help me with study plan",
+      "how does study plan work",
+      "plan",
+      "study",
+      "tell me about study plan.",
+      "what is study plan"
+    ],
+    "answer": "A study plan should divide the syllabus into topics, schedule active practice and review, and include time for mistakes and revision."
+  },
+  {
+    "questions": [
+      "What is memorization?",
+      "Can you explain memorization?",
+      "Tell me about memorization.",
+      "How does memorization work?",
+      "Can you help me with memorization?"
+    ],
+    "keywords": [
+      "can you explain memorization",
+      "can you help me with memorization",
+      "how does memorization work",
+      "memorization",
+      "tell me about memorization.",
+      "what is memorization"
+    ],
+    "answer": "Active recall and spaced repetition are generally more effective for durable learning than repeatedly rereading the same material."
+  },
+  {
+    "questions": [
+      "What is learning math?",
+      "Can you explain learning math?",
+      "Tell me about learning math.",
+      "How does learning math work?",
+      "Can you help me with learning math?"
+    ],
+    "keywords": [
+      "can you explain learning math",
+      "can you help me with learning math",
+      "how does learning math work",
+      "learning",
+      "math",
+      "tell me about learning math.",
+      "what is learning math"
+    ],
+    "answer": "For math, understand the concept first, work through a solved example, then solve problems without looking at the solution."
+  },
+  {
+    "questions": [
+      "What is learning coding?",
+      "Can you explain learning coding?",
+      "Tell me about learning coding.",
+      "How does learning coding work?",
+      "Can you help me with learning coding?"
+    ],
+    "keywords": [
+      "can you explain learning coding",
+      "can you help me with learning coding",
+      "coding",
+      "how does learning coding work",
+      "learning",
+      "tell me about learning coding.",
+      "what is learning coding"
+    ],
+    "answer": "Learn coding by combining short explanations with frequent hands-on practice. Build small projects and debug your own mistakes."
+  },
+  {
+    "questions": [
+      "What is Python?",
+      "Can you explain Python?",
+      "Tell me about Python.",
+      "How does Python work?",
+      "Can you help me with Python?"
+    ],
+    "keywords": [
+      "can you explain python",
+      "can you help me with python",
+      "how does python work",
+      "python",
+      "tell me about python.",
+      "what is python"
+    ],
+    "answer": "Python is a general-purpose programming language commonly used for automation, data analysis, web development, scientific computing, and AI."
+  },
+  {
+    "questions": [
+      "What is JavaScript?",
+      "Can you explain JavaScript?",
+      "Tell me about JavaScript.",
+      "How does JavaScript work?",
+      "Can you help me with JavaScript?"
+    ],
+    "keywords": [
+      "can you explain javascript",
+      "can you help me with javascript",
+      "how does javascript work",
+      "javascript",
+      "tell me about javascript.",
+      "what is javascript"
+    ],
+    "answer": "JavaScript is a programming language widely used to add interactive behavior to web pages and to build applications on servers and other platforms."
+  },
+  {
+    "questions": [
+      "What is HTML?",
+      "Can you explain HTML?",
+      "Tell me about HTML.",
+      "How does HTML work?",
+      "Can you help me with HTML?"
+    ],
+    "keywords": [
+      "can you explain html",
+      "can you help me with html",
+      "how does html work",
+      "html",
+      "tell me about html.",
+      "what is html"
+    ],
+    "answer": "HTML defines the structure and meaning of content on a web page, such as headings, paragraphs, links, forms, and images."
+  },
+  {
+    "questions": [
+      "What is CSS?",
+      "Can you explain CSS?",
+      "Tell me about CSS.",
+      "How does CSS work?",
+      "Can you help me with CSS?"
+    ],
+    "keywords": [
+      "can you explain css",
+      "can you help me with css",
+      "css",
+      "how does css work",
+      "tell me about css.",
+      "what is css"
+    ],
+    "answer": "CSS controls presentation and layout, including colors, spacing, typography, responsive behavior, and animations."
+  },
+  {
+    "questions": [
+      "What is web accessibility?",
+      "Can you explain web accessibility?",
+      "Tell me about web accessibility.",
+      "How does web accessibility work?",
+      "Can you help me with web accessibility?"
+    ],
+    "keywords": [
+      "accessibility",
+      "can you explain web accessibility",
+      "can you help me with web accessibility",
+      "how does web accessibility work",
+      "tell me about web accessibility.",
+      "web",
+      "what is web accessibility"
+    ],
+    "answer": "Accessible websites use semantic HTML, keyboard-friendly controls, sufficient contrast, meaningful labels, and text alternatives for important images."
+  },
+  {
+    "questions": [
+      "What is responsive design?",
+      "Can you explain responsive design?",
+      "Tell me about responsive design.",
+      "How does responsive design work?",
+      "Can you help me with responsive design?"
+    ],
+    "keywords": [
+      "can you explain responsive design",
+      "can you help me with responsive design",
+      "design",
+      "how does responsive design work",
+      "responsive",
+      "tell me about responsive design.",
+      "what is responsive design"
+    ],
+    "answer": "Responsive design adapts layout and components to different screen sizes and input methods, usually with flexible sizing and media queries."
+  },
+  {
+    "questions": [
+      "What is SEO?",
+      "Can you explain SEO?",
+      "Tell me about SEO.",
+      "How does SEO work?",
+      "Can you help me with SEO?"
+    ],
+    "keywords": [
+      "can you explain seo",
+      "can you help me with seo",
+      "how does seo work",
+      "seo",
+      "tell me about seo.",
+      "what is seo"
+    ],
+    "answer": "Search engine optimization involves making useful, crawlable, understandable content and a technically accessible website. No single trick guarantees rankings."
+  },
+  {
+    "questions": [
+      "What is website performance?",
+      "Can you explain website performance?",
+      "Tell me about website performance.",
+      "How does website performance work?",
+      "Can you help me with website performance?"
+    ],
+    "keywords": [
+      "can you explain website performance",
+      "can you help me with website performance",
+      "how does website performance work",
+      "performance",
+      "tell me about website performance.",
+      "website",
+      "what is website performance"
+    ],
+    "answer": "Performance can improve by reducing unnecessary JavaScript, optimizing images, caching assets, minimizing render-blocking work, and measuring real user experience."
+  },
+  {
+    "questions": [
+      "What is API?",
+      "Can you explain API?",
+      "Tell me about API.",
+      "How does API work?",
+      "Can you help me with API?"
+    ],
+    "keywords": [
+      "api",
+      "can you explain api",
+      "can you help me with api",
+      "how does api work",
+      "tell me about api.",
+      "what is api"
+    ],
+    "answer": "An API is a defined way for software systems to communicate. It specifies requests, inputs, authentication, responses, and errors."
+  },
+  {
+    "questions": [
+      "What is rest API?",
+      "Can you explain rest API?",
+      "Tell me about rest API.",
+      "How does rest API work?",
+      "Can you help me with rest API?"
+    ],
+    "keywords": [
+      "api",
+      "can you explain rest api",
+      "can you help me with rest api",
+      "how does rest api work",
+      "rest",
+      "tell me about rest api.",
+      "what is rest api"
+    ],
+    "answer": "A REST-style API commonly exposes resources through HTTP methods such as GET, POST, PUT or PATCH, and DELETE, with structured responses such as JSON."
+  },
+  {
+    "questions": [
+      "What is JSON?",
+      "Can you explain JSON?",
+      "Tell me about JSON.",
+      "How does JSON work?",
+      "Can you help me with JSON?"
+    ],
+    "keywords": [
+      "can you explain json",
+      "can you help me with json",
+      "how does json work",
+      "json",
+      "tell me about json.",
+      "what is json"
+    ],
+    "answer": "JSON is a text format for representing structured data using objects, arrays, strings, numbers, booleans, and null."
+  },
+  {
+    "questions": [
+      "What is database?",
+      "Can you explain database?",
+      "Tell me about database.",
+      "How does database work?",
+      "Can you help me with database?"
+    ],
+    "keywords": [
+      "can you explain database",
+      "can you help me with database",
+      "database",
+      "how does database work",
+      "tell me about database.",
+      "what is database"
+    ],
+    "answer": "A database stores and retrieves structured information. Common choices include relational databases and document-oriented databases."
+  },
+  {
+    "questions": [
+      "What is SQL?",
+      "Can you explain SQL?",
+      "Tell me about SQL.",
+      "How does SQL work?",
+      "Can you help me with SQL?"
+    ],
+    "keywords": [
+      "can you explain sql",
+      "can you help me with sql",
+      "how does sql work",
+      "sql",
+      "tell me about sql.",
+      "what is sql"
+    ],
+    "answer": "SQL is a language used to query and manipulate relational databases. Common operations include SELECT, INSERT, UPDATE, and DELETE."
+  },
+  {
+    "questions": [
+      "What is Git?",
+      "Can you explain Git?",
+      "Tell me about Git.",
+      "How does Git work?",
+      "Can you help me with Git?"
+    ],
+    "keywords": [
+      "can you explain git",
+      "can you help me with git",
+      "git",
+      "how does git work",
+      "tell me about git.",
+      "what is git"
+    ],
+    "answer": "Git is a version-control system that records changes to files so developers can compare versions, create branches, and collaborate."
+  },
+  {
+    "questions": [
+      "What is Github?",
+      "Can you explain Github?",
+      "Tell me about Github.",
+      "How does Github work?",
+      "Can you help me with Github?"
+    ],
+    "keywords": [
+      "can you explain github",
+      "can you help me with github",
+      "github",
+      "how does github work",
+      "tell me about github.",
+      "what is github"
+    ],
+    "answer": "GitHub is a platform for hosting Git repositories and collaborating through features such as pull requests, issues, and code review."
+  },
+  {
+    "questions": [
+      "What is debugging?",
+      "Can you explain debugging?",
+      "Tell me about debugging.",
+      "How does debugging work?",
+      "Can you help me with debugging?"
+    ],
+    "keywords": [
+      "can you explain debugging",
+      "can you help me with debugging",
+      "debugging",
+      "how does debugging work",
+      "tell me about debugging.",
+      "what is debugging"
+    ],
+    "answer": "Debugging means identifying why software behaves incorrectly, reproducing the problem, narrowing the cause, and testing a fix."
+  },
+  {
+    "questions": [
+      "What is error handling?",
+      "Can you explain error handling?",
+      "Tell me about error handling.",
+      "How does error handling work?",
+      "Can you help me with error handling?"
+    ],
+    "keywords": [
+      "can you explain error handling",
+      "can you help me with error handling",
+      "error",
+      "handling",
+      "how does error handling work",
+      "tell me about error handling.",
+      "what is error handling"
+    ],
+    "answer": "Good error handling gives users useful feedback while preventing sensitive internal details from leaking. Logs should contain enough context for diagnosis."
+  },
+  {
+    "questions": [
+      "What is security?",
+      "Can you explain security?",
+      "Tell me about security.",
+      "How does security work?",
+      "Can you help me with security?"
+    ],
+    "keywords": [
+      "can you explain security",
+      "can you help me with security",
+      "how does security work",
+      "security",
+      "tell me about security.",
+      "what is security"
+    ],
+    "answer": "Basic web security includes strong authentication, authorization checks, input validation, secure session handling, safe output encoding, and keeping dependencies updated."
+  },
+  {
+    "questions": [
+      "What is API keys?",
+      "Can you explain API keys?",
+      "Tell me about API keys.",
+      "How does API keys work?",
+      "Can you help me with API keys?"
+    ],
+    "keywords": [
+      "api",
+      "can you explain api keys",
+      "can you help me with api keys",
+      "how does api keys work",
+      "keys",
+      "tell me about api keys.",
+      "what is api keys"
+    ],
+    "answer": "API keys and other secrets should not be placed in browser JavaScript or public repositories. Keep secrets on a server or secure secret-management system."
+  },
+  {
+    "questions": [
+      "What is password security?",
+      "Can you explain password security?",
+      "Tell me about password security.",
+      "How does password security work?",
+      "Can you help me with password security?"
+    ],
+    "keywords": [
+      "can you explain password security",
+      "can you help me with password security",
+      "how does password security work",
+      "password",
+      "security",
+      "tell me about password security.",
+      "what is password security"
+    ],
+    "answer": "Use long, unique passwords and a password manager when possible. Services should store passwords with a slow password-hashing algorithm rather than plaintext."
+  },
+  {
+    "questions": [
+      "What is phishing?",
+      "Can you explain phishing?",
+      "Tell me about phishing.",
+      "How does phishing work?",
+      "Can you help me with phishing?"
+    ],
+    "keywords": [
+      "can you explain phishing",
+      "can you help me with phishing",
+      "how does phishing work",
+      "phishing",
+      "tell me about phishing.",
+      "what is phishing"
+    ],
+    "answer": "Phishing is a social-engineering attack that tries to trick people into revealing information or taking unsafe actions. Verify links, senders, and urgent requests independently."
+  },
+  {
+    "questions": [
+      "What is privacy?",
+      "Can you explain privacy?",
+      "Tell me about privacy.",
+      "How does privacy work?",
+      "Can you help me with privacy?"
+    ],
+    "keywords": [
+      "can you explain privacy",
+      "can you help me with privacy",
+      "how does privacy work",
+      "privacy",
+      "tell me about privacy.",
+      "what is privacy"
+    ],
+    "answer": "Privacy means controlling how personal information is collected, used, stored, and shared. Minimize unnecessary data collection and protect data that must be retained."
+  },
+  {
+    "questions": [
+      "What is backup?",
+      "Can you explain backup?",
+      "Tell me about backup.",
+      "How does backup work?",
+      "Can you help me with backup?"
+    ],
+    "keywords": [
+      "backup",
+      "can you explain backup",
+      "can you help me with backup",
+      "how does backup work",
+      "tell me about backup.",
+      "what is backup"
+    ],
+    "answer": "A good backup strategy keeps multiple copies, uses at least one separate location, and regularly tests whether backups can actually be restored."
+  },
+  {
+    "questions": [
+      "What is cloud?",
+      "Can you explain cloud?",
+      "Tell me about cloud.",
+      "How does cloud work?",
+      "Can you help me with cloud?"
+    ],
+    "keywords": [
+      "can you explain cloud",
+      "can you help me with cloud",
+      "cloud",
+      "how does cloud work",
+      "tell me about cloud.",
+      "what is cloud"
+    ],
+    "answer": "Cloud computing provides computing resources such as storage, servers, databases, and applications over networks, often with usage-based pricing."
+  },
+  {
+    "questions": [
+      "What is ai?",
+      "Can you explain ai?",
+      "Tell me about ai.",
+      "How does ai work?",
+      "Can you help me with ai?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai",
+      "can you help me with ai",
+      "how does ai work",
+      "tell me about ai.",
+      "what is ai"
+    ],
+    "answer": "AI refers to systems that perform tasks associated with capabilities such as pattern recognition, prediction, language processing, or decision support."
+  },
+  {
+    "questions": [
+      "What is machine learning?",
+      "Can you explain machine learning?",
+      "Tell me about machine learning.",
+      "How does machine learning work?",
+      "Can you help me with machine learning?"
+    ],
+    "keywords": [
+      "can you explain machine learning",
+      "can you help me with machine learning",
+      "how does machine learning work",
+      "learning",
+      "machine",
+      "tell me about machine learning.",
+      "what is machine learning"
+    ],
+    "answer": "Machine learning uses data to train models that learn patterns for prediction or generation instead of relying entirely on hand-written rules."
+  },
+  {
+    "questions": [
+      "What is generative ai?",
+      "Can you explain generative ai?",
+      "Tell me about generative ai.",
+      "How does generative ai work?",
+      "Can you help me with generative ai?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain generative ai",
+      "can you help me with generative ai",
+      "generative",
+      "how does generative ai work",
+      "tell me about generative ai.",
+      "what is generative ai"
+    ],
+    "answer": "Generative AI produces new text, images, audio, code, or other content from learned patterns and a user's instructions."
+  },
+  {
+    "questions": [
+      "What is LLM?",
+      "Can you explain LLM?",
+      "Tell me about LLM.",
+      "How does LLM work?",
+      "Can you help me with LLM?"
+    ],
+    "keywords": [
+      "can you explain llm",
+      "can you help me with llm",
+      "how does llm work",
+      "llm",
+      "tell me about llm.",
+      "what is llm"
+    ],
+    "answer": "A large language model predicts and generates language using patterns learned from large datasets. It can be useful but may produce incorrect or unsupported statements."
+  },
+  {
+    "questions": [
+      "What is prompting?",
+      "Can you explain prompting?",
+      "Tell me about prompting.",
+      "How does prompting work?",
+      "Can you help me with prompting?"
+    ],
+    "keywords": [
+      "can you explain prompting",
+      "can you help me with prompting",
+      "how does prompting work",
+      "prompting",
+      "tell me about prompting.",
+      "what is prompting"
+    ],
+    "answer": "A strong prompt states the task, relevant context, constraints, desired format, and examples when helpful."
+  },
+  {
+    "questions": [
+      "What is hallucination?",
+      "Can you explain hallucination?",
+      "Tell me about hallucination.",
+      "How does hallucination work?",
+      "Can you help me with hallucination?"
+    ],
+    "keywords": [
+      "can you explain hallucination",
+      "can you help me with hallucination",
+      "hallucination",
+      "how does hallucination work",
+      "tell me about hallucination.",
+      "what is hallucination"
+    ],
+    "answer": "An AI hallucination is an answer that sounds plausible but contains unsupported or incorrect information. Important claims should be checked against reliable sources."
+  },
+  {
+    "questions": [
+      "What is RAG?",
+      "Can you explain RAG?",
+      "Tell me about RAG.",
+      "How does RAG work?",
+      "Can you help me with RAG?"
+    ],
+    "keywords": [
+      "can you explain rag",
+      "can you help me with rag",
+      "how does rag work",
+      "rag",
+      "tell me about rag.",
+      "what is rag"
+    ],
+    "answer": "Retrieval-augmented generation, or RAG, retrieves relevant documents and gives them to a model as context so answers can be grounded in a specific knowledge collection."
+  },
+  {
+    "questions": [
+      "What is chatbot?",
+      "Can you explain chatbot?",
+      "Tell me about chatbot.",
+      "How does chatbot work?",
+      "Can you help me with chatbot?"
+    ],
+    "keywords": [
+      "can you explain chatbot",
+      "can you help me with chatbot",
+      "chatbot",
+      "how does chatbot work",
+      "tell me about chatbot.",
+      "what is chatbot"
+    ],
+    "answer": "A chatbot is software that interacts with users through conversation. It may use fixed rules, retrieval, a language model, or a combination."
+  },
+  {
+    "questions": [
+      "What is knowledge base?",
+      "Can you explain knowledge base?",
+      "Tell me about knowledge base.",
+      "How does knowledge base work?",
+      "Can you help me with knowledge base?"
+    ],
+    "keywords": [
+      "base",
+      "can you explain knowledge base",
+      "can you help me with knowledge base",
+      "how does knowledge base work",
+      "knowledge",
+      "tell me about knowledge base.",
+      "what is knowledge base"
+    ],
+    "answer": "A knowledge base is a structured collection of facts, answers, documents, or records that a system can search when responding to users."
+  },
+  {
+    "questions": [
+      "What is vector database?",
+      "Can you explain vector database?",
+      "Tell me about vector database.",
+      "How does vector database work?",
+      "Can you help me with vector database?"
+    ],
+    "keywords": [
+      "can you explain vector database",
+      "can you help me with vector database",
+      "database",
+      "how does vector database work",
+      "tell me about vector database.",
+      "vector",
+      "what is vector database"
+    ],
+    "answer": "A vector database stores numerical representations of data and supports similarity search, which is often used for semantic retrieval in AI applications."
+  },
+  {
+    "questions": [
+      "What is embeddings?",
+      "Can you explain embeddings?",
+      "Tell me about embeddings.",
+      "How does embeddings work?",
+      "Can you help me with embeddings?"
+    ],
+    "keywords": [
+      "can you explain embeddings",
+      "can you help me with embeddings",
+      "embeddings",
+      "how does embeddings work",
+      "tell me about embeddings.",
+      "what is embeddings"
+    ],
+    "answer": "Embeddings represent text or other data as numerical vectors so related items can be compared by mathematical similarity."
+  },
+  {
+    "questions": [
+      "What is fine tuning?",
+      "Can you explain fine tuning?",
+      "Tell me about fine tuning.",
+      "How does fine tuning work?",
+      "Can you help me with fine tuning?"
+    ],
+    "keywords": [
+      "can you explain fine tuning",
+      "can you help me with fine tuning",
+      "fine",
+      "how does fine tuning work",
+      "tell me about fine tuning.",
+      "tuning",
+      "what is fine tuning"
+    ],
+    "answer": "Fine-tuning adapts a pretrained model using additional training examples for a narrower behavior or task. It is different from simply adding documents through retrieval."
+  },
+  {
+    "questions": [
+      "What is model training?",
+      "Can you explain model training?",
+      "Tell me about model training.",
+      "How does model training work?",
+      "Can you help me with model training?"
+    ],
+    "keywords": [
+      "can you explain model training",
+      "can you help me with model training",
+      "how does model training work",
+      "model",
+      "tell me about model training.",
+      "training",
+      "what is model training"
+    ],
+    "answer": "Training an AI model involves optimizing parameters using data and an objective function. Large-scale training requires substantial compute, data, evaluation, and engineering."
+  },
+  {
+    "questions": [
+      "What is data quality?",
+      "Can you explain data quality?",
+      "Tell me about data quality.",
+      "How does data quality work?",
+      "Can you help me with data quality?"
+    ],
+    "keywords": [
+      "can you explain data quality",
+      "can you help me with data quality",
+      "data",
+      "how does data quality work",
+      "quality",
+      "tell me about data quality.",
+      "what is data quality"
+    ],
+    "answer": "Better data is usually consistent, relevant, representative, well-labeled when needed, and checked for errors and duplication."
+  },
+  {
+    "questions": [
+      "What is fact checking?",
+      "Can you explain fact checking?",
+      "Tell me about fact checking.",
+      "How does fact checking work?",
+      "Can you help me with fact checking?"
+    ],
+    "keywords": [
+      "can you explain fact checking",
+      "can you help me with fact checking",
+      "checking",
+      "fact",
+      "how does fact checking work",
+      "tell me about fact checking.",
+      "what is fact checking"
+    ],
+    "answer": "For important facts, check the original or authoritative source, confirm the date and context, and distinguish established evidence from claims or opinions."
+  },
+  {
+    "questions": [
+      "What is science?",
+      "Can you explain science?",
+      "Tell me about science.",
+      "How does science work?",
+      "Can you help me with science?"
+    ],
+    "keywords": [
+      "can you explain science",
+      "can you help me with science",
+      "how does science work",
+      "science",
+      "tell me about science.",
+      "what is science"
+    ],
+    "answer": "Science is a systematic way of developing and testing explanations using observation, measurement, experimentation, and evidence."
+  },
+  {
+    "questions": [
+      "What is physics?",
+      "Can you explain physics?",
+      "Tell me about physics.",
+      "How does physics work?",
+      "Can you help me with physics?"
+    ],
+    "keywords": [
+      "can you explain physics",
+      "can you help me with physics",
+      "how does physics work",
+      "physics",
+      "tell me about physics.",
+      "what is physics"
+    ],
+    "answer": "Physics studies matter, energy, motion, forces, fields, and the fundamental laws that describe physical systems."
+  },
+  {
+    "questions": [
+      "What is chemistry?",
+      "Can you explain chemistry?",
+      "Tell me about chemistry.",
+      "How does chemistry work?",
+      "Can you help me with chemistry?"
+    ],
+    "keywords": [
+      "can you explain chemistry",
+      "can you help me with chemistry",
+      "chemistry",
+      "how does chemistry work",
+      "tell me about chemistry.",
+      "what is chemistry"
+    ],
+    "answer": "Chemistry studies substances, their properties, structures, reactions, and transformations."
+  },
+  {
+    "questions": [
+      "What is biology?",
+      "Can you explain biology?",
+      "Tell me about biology.",
+      "How does biology work?",
+      "Can you help me with biology?"
+    ],
+    "keywords": [
+      "biology",
+      "can you explain biology",
+      "can you help me with biology",
+      "how does biology work",
+      "tell me about biology.",
+      "what is biology"
+    ],
+    "answer": "Biology studies living systems, including cells, organisms, evolution, genetics, ecology, and physiology."
+  },
+  {
+    "questions": [
+      "What is astronomy?",
+      "Can you explain astronomy?",
+      "Tell me about astronomy.",
+      "How does astronomy work?",
+      "Can you help me with astronomy?"
+    ],
+    "keywords": [
+      "astronomy",
+      "can you explain astronomy",
+      "can you help me with astronomy",
+      "how does astronomy work",
+      "tell me about astronomy.",
+      "what is astronomy"
+    ],
+    "answer": "Astronomy studies objects and phenomena beyond Earth, including stars, planets, galaxies, and the large-scale universe."
+  },
+  {
+    "questions": [
+      "What is climate?",
+      "Can you explain climate?",
+      "Tell me about climate.",
+      "How does climate work?",
+      "Can you help me with climate?"
+    ],
+    "keywords": [
+      "can you explain climate",
+      "can you help me with climate",
+      "climate",
+      "how does climate work",
+      "tell me about climate.",
+      "what is climate"
+    ],
+    "answer": "Earth's climate describes long-term patterns of temperature, precipitation, winds, and other atmospheric conditions. Weather describes shorter-term conditions."
+  },
+  {
+    "questions": [
+      "What is environment?",
+      "Can you explain environment?",
+      "Tell me about environment.",
+      "How does environment work?",
+      "Can you help me with environment?"
+    ],
+    "keywords": [
+      "can you explain environment",
+      "can you help me with environment",
+      "environment",
+      "how does environment work",
+      "tell me about environment.",
+      "what is environment"
+    ],
+    "answer": "Environmental questions often involve interactions among ecosystems, human activity, resources, pollution, and long-term sustainability."
+  },
+  {
+    "questions": [
+      "What is economics?",
+      "Can you explain economics?",
+      "Tell me about economics.",
+      "How does economics work?",
+      "Can you help me with economics?"
+    ],
+    "keywords": [
+      "can you explain economics",
+      "can you help me with economics",
+      "economics",
+      "how does economics work",
+      "tell me about economics.",
+      "what is economics"
+    ],
+    "answer": "Economics studies how people and institutions make choices about scarce resources, including production, consumption, trade, and incentives."
+  },
+  {
+    "questions": [
+      "What is business?",
+      "Can you explain business?",
+      "Tell me about business.",
+      "How does business work?",
+      "Can you help me with business?"
+    ],
+    "keywords": [
+      "business",
+      "can you explain business",
+      "can you help me with business",
+      "how does business work",
+      "tell me about business.",
+      "what is business"
+    ],
+    "answer": "A business creates value for customers and captures some of that value as revenue or other returns. Strategy involves choices about customers, products, resources, and competition."
+  },
+  {
+    "questions": [
+      "What is marketing?",
+      "Can you explain marketing?",
+      "Tell me about marketing.",
+      "How does marketing work?",
+      "Can you help me with marketing?"
+    ],
+    "keywords": [
+      "can you explain marketing",
+      "can you help me with marketing",
+      "how does marketing work",
+      "marketing",
+      "tell me about marketing.",
+      "what is marketing"
+    ],
+    "answer": "Marketing involves understanding an audience, communicating a value proposition, reaching potential customers, and measuring results."
+  },
+  {
+    "questions": [
+      "What is branding?",
+      "Can you explain branding?",
+      "Tell me about branding.",
+      "How does branding work?",
+      "Can you help me with branding?"
+    ],
+    "keywords": [
+      "branding",
+      "can you explain branding",
+      "can you help me with branding",
+      "how does branding work",
+      "tell me about branding.",
+      "what is branding"
+    ],
+    "answer": "A brand is the set of associations and expectations people connect with an organization or product. Consistency and actual customer experience both matter."
+  },
+  {
+    "questions": [
+      "What is sales?",
+      "Can you explain sales?",
+      "Tell me about sales.",
+      "How does sales work?",
+      "Can you help me with sales?"
+    ],
+    "keywords": [
+      "can you explain sales",
+      "can you help me with sales",
+      "how does sales work",
+      "sales",
+      "tell me about sales.",
+      "what is sales"
+    ],
+    "answer": "Sales involves identifying potential customers, understanding their needs, communicating relevant value, addressing concerns, and agreeing on next steps."
+  },
+  {
+    "questions": [
+      "What is customer service?",
+      "Can you explain customer service?",
+      "Tell me about customer service.",
+      "How does customer service work?",
+      "Can you help me with customer service?"
+    ],
+    "keywords": [
+      "can you explain customer service",
+      "can you help me with customer service",
+      "customer",
+      "how does customer service work",
+      "service",
+      "tell me about customer service.",
+      "what is customer service"
+    ],
+    "answer": "Good customer service is clear, respectful, timely, and focused on resolving the customer's actual problem."
+  },
+  {
+    "questions": [
+      "What is project management?",
+      "Can you explain project management?",
+      "Tell me about project management.",
+      "How does project management work?",
+      "Can you help me with project management?"
+    ],
+    "keywords": [
+      "can you explain project management",
+      "can you help me with project management",
+      "how does project management work",
+      "management",
+      "project",
+      "tell me about project management.",
+      "what is project management"
+    ],
+    "answer": "Project management coordinates scope, schedule, resources, risks, communication, and delivery. A clear definition of done helps prevent confusion."
+  },
+  {
+    "questions": [
+      "What is startup?",
+      "Can you explain startup?",
+      "Tell me about startup.",
+      "How does startup work?",
+      "Can you help me with startup?"
+    ],
+    "keywords": [
+      "can you explain startup",
+      "can you help me with startup",
+      "how does startup work",
+      "startup",
+      "tell me about startup.",
+      "what is startup"
+    ],
+    "answer": "A startup typically tests a business model under uncertainty. Early work often focuses on customer problems, a minimum viable product, feedback, and evidence of demand."
+  },
+  {
+    "questions": [
+      "What is freelancing?",
+      "Can you explain freelancing?",
+      "Tell me about freelancing.",
+      "How does freelancing work?",
+      "Can you help me with freelancing?"
+    ],
+    "keywords": [
+      "can you explain freelancing",
+      "can you help me with freelancing",
+      "freelancing",
+      "how does freelancing work",
+      "tell me about freelancing.",
+      "what is freelancing"
+    ],
+    "answer": "Freelancing works best with a clear scope, written deliverables, deadlines, payment terms, revision limits, and a reliable communication process."
+  },
+  {
+    "questions": [
+      "What is web design?",
+      "Can you explain web design?",
+      "Tell me about web design.",
+      "How does web design work?",
+      "Can you help me with web design?"
+    ],
+    "keywords": [
+      "can you explain web design",
+      "can you help me with web design",
+      "design",
+      "how does web design work",
+      "tell me about web design.",
+      "web",
+      "what is web design"
+    ],
+    "answer": "Good web design balances usability, visual hierarchy, accessibility, performance, branding, and the needs of the target audience."
+  },
+  {
+    "questions": [
+      "What is UI design?",
+      "Can you explain UI design?",
+      "Tell me about UI design.",
+      "How does UI design work?",
+      "Can you help me with UI design?"
+    ],
+    "keywords": [
+      "can you explain ui design",
+      "can you help me with ui design",
+      "design",
+      "how does ui design work",
+      "tell me about ui design.",
+      "ui",
+      "what is ui design"
+    ],
+    "answer": "UI design concerns the visual and interactive elements people use, such as buttons, forms, navigation, typography, spacing, and feedback states."
+  },
+  {
+    "questions": [
+      "What is UX design?",
+      "Can you explain UX design?",
+      "Tell me about UX design.",
+      "How does UX design work?",
+      "Can you help me with UX design?"
+    ],
+    "keywords": [
+      "can you explain ux design",
+      "can you help me with ux design",
+      "design",
+      "how does ux design work",
+      "tell me about ux design.",
+      "ux",
+      "what is ux design"
+    ],
+    "answer": "UX design focuses on how effectively and comfortably people accomplish goals while using a product or service."
+  },
+  {
+    "questions": [
+      "What is color design?",
+      "Can you explain color design?",
+      "Tell me about color design.",
+      "How does color design work?",
+      "Can you help me with color design?"
+    ],
+    "keywords": [
+      "can you explain color design",
+      "can you help me with color design",
+      "color",
+      "design",
+      "how does color design work",
+      "tell me about color design.",
+      "what is color design"
+    ],
+    "answer": "Choose colors for hierarchy, meaning, brand consistency, readability, and accessibility rather than decoration alone."
+  },
+  {
+    "questions": [
+      "What is typography?",
+      "Can you explain typography?",
+      "Tell me about typography.",
+      "How does typography work?",
+      "Can you help me with typography?"
+    ],
+    "keywords": [
+      "can you explain typography",
+      "can you help me with typography",
+      "how does typography work",
+      "tell me about typography.",
+      "typography",
+      "what is typography"
+    ],
+    "answer": "Typography affects readability, hierarchy, tone, and visual rhythm. Use a manageable type scale and sufficient line height."
+  },
+  {
+    "questions": [
+      "What is logo?",
+      "Can you explain logo?",
+      "Tell me about logo.",
+      "How does logo work?",
+      "Can you help me with logo?"
+    ],
+    "keywords": [
+      "can you explain logo",
+      "can you help me with logo",
+      "how does logo work",
+      "logo",
+      "tell me about logo.",
+      "what is logo"
+    ],
+    "answer": "A logo should remain recognizable at the sizes and contexts where it will be used. Simplicity often improves flexibility."
+  },
+  {
+    "questions": [
+      "What is landing page?",
+      "Can you explain landing page?",
+      "Tell me about landing page.",
+      "How does landing page work?",
+      "Can you help me with landing page?"
+    ],
+    "keywords": [
+      "can you explain landing page",
+      "can you help me with landing page",
+      "how does landing page work",
+      "landing",
+      "page",
+      "tell me about landing page.",
+      "what is landing page"
+    ],
+    "answer": "A landing page should communicate the audience, value proposition, key evidence, and next action quickly, with a clear visual hierarchy."
+  },
+  {
+    "questions": [
+      "What is ecommerce?",
+      "Can you explain ecommerce?",
+      "Tell me about ecommerce.",
+      "How does ecommerce work?",
+      "Can you help me with ecommerce?"
+    ],
+    "keywords": [
+      "can you explain ecommerce",
+      "can you help me with ecommerce",
+      "ecommerce",
+      "how does ecommerce work",
+      "tell me about ecommerce.",
+      "what is ecommerce"
+    ],
+    "answer": "An ecommerce site should make product discovery, comparison, checkout, payment, delivery information, and support clear and trustworthy."
+  },
+  {
+    "questions": [
+      "What is forms?",
+      "Can you explain forms?",
+      "Tell me about forms.",
+      "How does forms work?",
+      "Can you help me with forms?"
+    ],
+    "keywords": [
+      "can you explain forms",
+      "can you help me with forms",
+      "forms",
+      "how does forms work",
+      "tell me about forms.",
+      "what is forms"
+    ],
+    "answer": "Good forms use clear labels, sensible field grouping, helpful validation, accessible controls, and concise error messages."
+  },
+  {
+    "questions": [
+      "What is notifications?",
+      "Can you explain notifications?",
+      "Tell me about notifications.",
+      "How does notifications work?",
+      "Can you help me with notifications?"
+    ],
+    "keywords": [
+      "can you explain notifications",
+      "can you help me with notifications",
+      "how does notifications work",
+      "notifications",
+      "tell me about notifications.",
+      "what is notifications"
+    ],
+    "answer": "Useful notifications tell the user what happened, whether action is needed, and what to do next without becoming distracting."
+  },
+  {
+    "questions": [
+      "What is mobile app?",
+      "Can you explain mobile app?",
+      "Tell me about mobile app.",
+      "How does mobile app work?",
+      "Can you help me with mobile app?"
+    ],
+    "keywords": [
+      "app",
+      "can you explain mobile app",
+      "can you help me with mobile app",
+      "how does mobile app work",
+      "mobile",
+      "tell me about mobile app.",
+      "what is mobile app"
+    ],
+    "answer": "A mobile app should account for small screens, touch targets, connectivity changes, permissions, battery use, and platform conventions."
+  },
+  {
+    "questions": [
+      "What is testing?",
+      "Can you explain testing?",
+      "Tell me about testing.",
+      "How does testing work?",
+      "Can you help me with testing?"
+    ],
+    "keywords": [
+      "can you explain testing",
+      "can you help me with testing",
+      "how does testing work",
+      "tell me about testing.",
+      "testing",
+      "what is testing"
+    ],
+    "answer": "Software testing checks whether a system behaves as intended. Unit, integration, end-to-end, accessibility, and performance tests cover different risks."
+  },
+  {
+    "questions": [
+      "What is unit testing?",
+      "Can you explain unit testing?",
+      "Tell me about unit testing.",
+      "How does unit testing work?",
+      "Can you help me with unit testing?"
+    ],
+    "keywords": [
+      "can you explain unit testing",
+      "can you help me with unit testing",
+      "how does unit testing work",
+      "tell me about unit testing.",
+      "testing",
+      "unit",
+      "what is unit testing"
+    ],
+    "answer": "Unit tests check small pieces of code in isolation. They are useful for catching regressions and clarifying expected behavior."
+  },
+  {
+    "questions": [
+      "What is code review?",
+      "Can you explain code review?",
+      "Tell me about code review.",
+      "How does code review work?",
+      "Can you help me with code review?"
+    ],
+    "keywords": [
+      "can you explain code review",
+      "can you help me with code review",
+      "code",
+      "how does code review work",
+      "review",
+      "tell me about code review.",
+      "what is code review"
+    ],
+    "answer": "A code review examines correctness, maintainability, security, performance, tests, and consistency before changes are merged."
+  },
+  {
+    "questions": [
+      "What is documentation?",
+      "Can you explain documentation?",
+      "Tell me about documentation.",
+      "How does documentation work?",
+      "Can you help me with documentation?"
+    ],
+    "keywords": [
+      "can you explain documentation",
+      "can you help me with documentation",
+      "documentation",
+      "how does documentation work",
+      "tell me about documentation.",
+      "what is documentation"
+    ],
+    "answer": "Good documentation explains what something does, how to use it, assumptions, examples, and important limitations."
+  },
+  {
+    "questions": [
+      "What is open source?",
+      "Can you explain open source?",
+      "Tell me about open source.",
+      "How does open source work?",
+      "Can you help me with open source?"
+    ],
+    "keywords": [
+      "can you explain open source",
+      "can you help me with open source",
+      "how does open source work",
+      "open",
+      "source",
+      "tell me about open source.",
+      "what is open source"
+    ],
+    "answer": "Open-source software makes source code available under a license that defines permitted use, modification, and redistribution."
+  },
+  {
+    "questions": [
+      "What is licensing?",
+      "Can you explain licensing?",
+      "Tell me about licensing.",
+      "How does licensing work?",
+      "Can you help me with licensing?"
+    ],
+    "keywords": [
+      "can you explain licensing",
+      "can you help me with licensing",
+      "how does licensing work",
+      "licensing",
+      "tell me about licensing.",
+      "what is licensing"
+    ],
+    "answer": "Software licenses specify rights and restrictions. Before reusing code or assets, check the license and its requirements."
+  },
+  {
+    "questions": [
+      "What is copyright?",
+      "Can you explain copyright?",
+      "Tell me about copyright.",
+      "How does copyright work?",
+      "Can you help me with copyright?"
+    ],
+    "keywords": [
+      "can you explain copyright",
+      "can you help me with copyright",
+      "copyright",
+      "how does copyright work",
+      "tell me about copyright.",
+      "what is copyright"
+    ],
+    "answer": "Copyright generally protects original creative expression. Rules vary by jurisdiction, so specific legal questions may require a qualified professional."
+  },
+  {
+    "questions": [
+      "What is fair use?",
+      "Can you explain fair use?",
+      "Tell me about fair use.",
+      "How does fair use work?",
+      "Can you help me with fair use?"
+    ],
+    "keywords": [
+      "can you explain fair use",
+      "can you help me with fair use",
+      "fair",
+      "how does fair use work",
+      "tell me about fair use.",
+      "use",
+      "what is fair use"
+    ],
+    "answer": "Fair use is a legal doctrine in some jurisdictions, especially the United States, with context-dependent factors. It is not a blanket permission to copy."
+  },
+  {
+    "questions": [
+      "What is education?",
+      "Can you explain education?",
+      "Tell me about education.",
+      "How does education work?",
+      "Can you help me with education?"
+    ],
+    "keywords": [
+      "can you explain education",
+      "can you help me with education",
+      "education",
+      "how does education work",
+      "tell me about education.",
+      "what is education"
+    ],
+    "answer": "Effective education combines clear explanations, active practice, feedback, and opportunities to apply knowledge."
+  },
+  {
+    "questions": [
+      "What is essay?",
+      "Can you explain essay?",
+      "Tell me about essay.",
+      "How does essay work?",
+      "Can you help me with essay?"
+    ],
+    "keywords": [
+      "can you explain essay",
+      "can you help me with essay",
+      "essay",
+      "how does essay work",
+      "tell me about essay.",
+      "what is essay"
+    ],
+    "answer": "A strong essay has a clear thesis, logical structure, evidence or examples, and transitions that connect ideas."
+  },
+  {
+    "questions": [
+      "What is presentation?",
+      "Can you explain presentation?",
+      "Tell me about presentation.",
+      "How does presentation work?",
+      "Can you help me with presentation?"
+    ],
+    "keywords": [
+      "can you explain presentation",
+      "can you help me with presentation",
+      "how does presentation work",
+      "presentation",
+      "tell me about presentation.",
+      "what is presentation"
+    ],
+    "answer": "A good presentation has one clear purpose, readable slides, a logical story, and spoken explanation that adds value beyond the slide text."
+  },
+  {
+    "questions": [
+      "What is public speaking?",
+      "Can you explain public speaking?",
+      "Tell me about public speaking.",
+      "How does public speaking work?",
+      "Can you help me with public speaking?"
+    ],
+    "keywords": [
+      "can you explain public speaking",
+      "can you help me with public speaking",
+      "how does public speaking work",
+      "public",
+      "speaking",
+      "tell me about public speaking.",
+      "what is public speaking"
+    ],
+    "answer": "Practice aloud, use a clear structure, slow down when emphasizing important ideas, and focus on communicating rather than memorizing every word."
+  },
+  {
+    "questions": [
+      "What is english speaking?",
+      "Can you explain english speaking?",
+      "Tell me about english speaking.",
+      "How does english speaking work?",
+      "Can you help me with english speaking?"
+    ],
+    "keywords": [
+      "can you explain english speaking",
+      "can you help me with english speaking",
+      "english",
+      "how does english speaking work",
+      "speaking",
+      "tell me about english speaking.",
+      "what is english speaking"
+    ],
+    "answer": "To improve spoken English, practice short conversations, shadow natural speech, learn useful phrases, and get feedback on pronunciation and grammar."
+  },
+  {
+    "questions": [
+      "What is vocabulary?",
+      "Can you explain vocabulary?",
+      "Tell me about vocabulary.",
+      "How does vocabulary work?",
+      "Can you help me with vocabulary?"
+    ],
+    "keywords": [
+      "can you explain vocabulary",
+      "can you help me with vocabulary",
+      "how does vocabulary work",
+      "tell me about vocabulary.",
+      "vocabulary",
+      "what is vocabulary"
+    ],
+    "answer": "Learn vocabulary in context, revisit it over time, and use new words in your own sentences rather than only memorizing definitions."
+  },
+  {
+    "questions": [
+      "What is reading?",
+      "Can you explain reading?",
+      "Tell me about reading.",
+      "How does reading work?",
+      "Can you help me with reading?"
+    ],
+    "keywords": [
+      "can you explain reading",
+      "can you help me with reading",
+      "how does reading work",
+      "reading",
+      "tell me about reading.",
+      "what is reading"
+    ],
+    "answer": "For difficult reading, preview the structure, identify the main claim, annotate important evidence, and summarize each section in your own words."
+  },
+  {
+    "questions": [
+      "What is writing?",
+      "Can you explain writing?",
+      "Tell me about writing.",
+      "How does writing work?",
+      "Can you help me with writing?"
+    ],
+    "keywords": [
+      "can you explain writing",
+      "can you help me with writing",
+      "how does writing work",
+      "tell me about writing.",
+      "what is writing",
+      "writing"
+    ],
+    "answer": "Clear writing usually starts with a specific purpose and audience, then uses simple structure, precise wording, and revision."
+  },
+  {
+    "questions": [
+      "What is creative writing?",
+      "Can you explain creative writing?",
+      "Tell me about creative writing.",
+      "How does creative writing work?",
+      "Can you help me with creative writing?"
+    ],
+    "keywords": [
+      "can you explain creative writing",
+      "can you help me with creative writing",
+      "creative",
+      "how does creative writing work",
+      "tell me about creative writing.",
+      "what is creative writing",
+      "writing"
+    ],
+    "answer": "Creative writing benefits from specific details, distinctive characters or ideas, purposeful structure, and revision for rhythm and clarity."
+  },
+  {
+    "questions": [
+      "What is story ideas?",
+      "Can you explain story ideas?",
+      "Tell me about story ideas.",
+      "How does story ideas work?",
+      "Can you help me with story ideas?"
+    ],
+    "keywords": [
+      "can you explain story ideas",
+      "can you help me with story ideas",
+      "how does story ideas work",
+      "ideas",
+      "story",
+      "tell me about story ideas.",
+      "what is story ideas"
+    ],
+    "answer": "A story can start with a character who wants something, an obstacle that prevents it, and consequences that force choices."
+  },
+  {
+    "questions": [
+      "What is poetry?",
+      "Can you explain poetry?",
+      "Tell me about poetry.",
+      "How does poetry work?",
+      "Can you help me with poetry?"
+    ],
+    "keywords": [
+      "can you explain poetry",
+      "can you help me with poetry",
+      "how does poetry work",
+      "poetry",
+      "tell me about poetry.",
+      "what is poetry"
+    ],
+    "answer": "Poetry can use imagery, rhythm, sound, line breaks, metaphor, and compression to create meaning and emotion."
+  },
+  {
+    "questions": [
+      "What is recipes?",
+      "Can you explain recipes?",
+      "Tell me about recipes.",
+      "How does recipes work?",
+      "Can you help me with recipes?"
+    ],
+    "keywords": [
+      "can you explain recipes",
+      "can you help me with recipes",
+      "how does recipes work",
+      "recipes",
+      "tell me about recipes.",
+      "what is recipes"
+    ],
+    "answer": "For cooking help, provide the dish, servings, dietary constraints, ingredients you have, equipment, and desired difficulty."
+  },
+  {
+    "questions": [
+      "What is cooking safety?",
+      "Can you explain cooking safety?",
+      "Tell me about cooking safety.",
+      "How does cooking safety work?",
+      "Can you help me with cooking safety?"
+    ],
+    "keywords": [
+      "can you explain cooking safety",
+      "can you help me with cooking safety",
+      "cooking",
+      "how does cooking safety work",
+      "safety",
+      "tell me about cooking safety.",
+      "what is cooking safety"
+    ],
+    "answer": "Use clean hands and surfaces, separate raw and ready-to-eat foods, cook foods to safe temperatures, and refrigerate perishables promptly."
+  },
+  {
+    "questions": [
+      "What is fitness planning?",
+      "Can you explain fitness planning?",
+      "Tell me about fitness planning.",
+      "How does fitness planning work?",
+      "Can you help me with fitness planning?"
+    ],
+    "keywords": [
+      "can you explain fitness planning",
+      "can you help me with fitness planning",
+      "fitness",
+      "how does fitness planning work",
+      "planning",
+      "tell me about fitness planning.",
+      "what is fitness planning"
+    ],
+    "answer": "A general fitness plan should account for goals, current ability, recovery, consistency, and gradual progression. Individual medical concerns should be discussed with a professional."
+  },
+  {
+    "questions": [
+      "What is sleep habits?",
+      "Can you explain sleep habits?",
+      "Tell me about sleep habits.",
+      "How does sleep habits work?",
+      "Can you help me with sleep habits?"
+    ],
+    "keywords": [
+      "can you explain sleep habits",
+      "can you help me with sleep habits",
+      "habits",
+      "how does sleep habits work",
+      "sleep",
+      "tell me about sleep habits.",
+      "what is sleep habits"
+    ],
+    "answer": "Consistent sleep and wake times, a comfortable environment, regular daytime activity, and limiting late stimulants can support sleep."
+  },
+  {
+    "questions": [
+      "What is stress management?",
+      "Can you explain stress management?",
+      "Tell me about stress management.",
+      "How does stress management work?",
+      "Can you help me with stress management?"
+    ],
+    "keywords": [
+      "can you explain stress management",
+      "can you help me with stress management",
+      "how does stress management work",
+      "management",
+      "stress",
+      "tell me about stress management.",
+      "what is stress management"
+    ],
+    "answer": "Useful stress-management approaches can include breaking tasks down, regular movement, sleep, breathing or relaxation exercises, and talking with someone you trust."
+  },
+  {
+    "questions": [
+      "What is mental wellness?",
+      "Can you explain mental wellness?",
+      "Tell me about mental wellness.",
+      "How does mental wellness work?",
+      "Can you help me with mental wellness?"
+    ],
+    "keywords": [
+      "can you explain mental wellness",
+      "can you help me with mental wellness",
+      "how does mental wellness work",
+      "mental",
+      "tell me about mental wellness.",
+      "wellness",
+      "what is mental wellness"
+    ],
+    "answer": "For general wellbeing, routines involving sleep, movement, social connection, meaningful activity, and manageable goals can help. Persistent or severe concerns deserve professional support."
+  },
+  {
+    "questions": [
+      "What is travel planning?",
+      "Can you explain travel planning?",
+      "Tell me about travel planning.",
+      "How does travel planning work?",
+      "Can you help me with travel planning?"
+    ],
+    "keywords": [
+      "can you explain travel planning",
+      "can you help me with travel planning",
+      "how does travel planning work",
+      "planning",
+      "tell me about travel planning.",
+      "travel",
+      "what is travel planning"
+    ],
+    "answer": "Travel planning usually includes dates, budget, transportation, lodging, activities, documents, local conditions, and backup options."
+  },
+  {
+    "questions": [
+      "What is packing?",
+      "Can you explain packing?",
+      "Tell me about packing.",
+      "How does packing work?",
+      "Can you help me with packing?"
+    ],
+    "keywords": [
+      "can you explain packing",
+      "can you help me with packing",
+      "how does packing work",
+      "packing",
+      "tell me about packing.",
+      "what is packing"
+    ],
+    "answer": "Pack based on destination weather, trip length, planned activities, laundry access, and baggage limits. A short checklist reduces forgotten essentials."
+  },
+  {
+    "questions": [
+      "What is budgeting?",
+      "Can you explain budgeting?",
+      "Tell me about budgeting.",
+      "How does budgeting work?",
+      "Can you help me with budgeting?"
+    ],
+    "keywords": [
+      "budgeting",
+      "can you explain budgeting",
+      "can you help me with budgeting",
+      "how does budgeting work",
+      "tell me about budgeting.",
+      "what is budgeting"
+    ],
+    "answer": "A basic budget lists income, fixed costs, variable spending, savings goals, and irregular expenses. Review actual spending and adjust the plan."
+  },
+  {
+    "questions": [
+      "What is saving money?",
+      "Can you explain saving money?",
+      "Tell me about saving money.",
+      "How does saving money work?",
+      "Can you help me with saving money?"
+    ],
+    "keywords": [
+      "can you explain saving money",
+      "can you help me with saving money",
+      "how does saving money work",
+      "money",
+      "saving",
+      "tell me about saving money.",
+      "what is saving money"
+    ],
+    "answer": "Start by identifying recurring expenses, setting a realistic savings target, automating savings when possible, and avoiding unnecessary high-cost debt."
+  },
+  {
+    "questions": [
+      "What is investing basics?",
+      "Can you explain investing basics?",
+      "Tell me about investing basics.",
+      "How does investing basics work?",
+      "Can you help me with investing basics?"
+    ],
+    "keywords": [
+      "basics",
+      "can you explain investing basics",
+      "can you help me with investing basics",
+      "how does investing basics work",
+      "investing",
+      "tell me about investing basics.",
+      "what is investing basics"
+    ],
+    "answer": "Investing involves risk and potential return. Diversification, time horizon, fees, liquidity needs, and risk tolerance are important considerations."
+  },
+  {
+    "questions": [
+      "What is personal finance safety?",
+      "Can you explain personal finance safety?",
+      "Tell me about personal finance safety.",
+      "How does personal finance safety work?",
+      "Can you help me with personal finance safety?"
+    ],
+    "keywords": [
+      "can you explain personal finance safety",
+      "can you help me with personal finance safety",
+      "finance",
+      "how does personal finance safety work",
+      "personal",
+      "safety",
+      "tell me about personal finance safety.",
+      "what is personal finance safety"
+    ],
+    "answer": "Do not share passwords, one-time codes, or banking credentials with people who contact you unexpectedly. Verify financial requests through trusted channels."
+  },
+  {
+    "questions": [
+      "What is unit conversion?",
+      "Can you explain unit conversion?",
+      "Tell me about unit conversion.",
+      "How does unit conversion work?",
+      "Can you help me with unit conversion?"
+    ],
+    "keywords": [
+      "can you explain unit conversion",
+      "can you help me with unit conversion",
+      "conversion",
+      "how does unit conversion work",
+      "tell me about unit conversion.",
+      "unit",
+      "what is unit conversion"
+    ],
+    "answer": "For a unit conversion, identify the starting unit, target unit, and conversion factor. I can calculate the result if you provide the values."
+  },
+  {
+    "questions": [
+      "What is percentage?",
+      "Can you explain percentage?",
+      "Tell me about percentage.",
+      "How does percentage work?",
+      "Can you help me with percentage?"
+    ],
+    "keywords": [
+      "can you explain percentage",
+      "can you help me with percentage",
+      "how does percentage work",
+      "percentage",
+      "tell me about percentage.",
+      "what is percentage"
+    ],
+    "answer": "A percentage means 'per hundred.' To find x percent of y, calculate x/100 multiplied by y."
+  },
+  {
+    "questions": [
+      "What is aveRAGe?",
+      "Can you explain aveRAGe?",
+      "Tell me about aveRAGe.",
+      "How does aveRAGe work?",
+      "Can you help me with aveRAGe?"
+    ],
+    "keywords": [
+      "average",
+      "can you explain average",
+      "can you help me with average",
+      "how does average work",
+      "tell me about average.",
+      "what is average"
+    ],
+    "answer": "The arithmetic mean is found by adding all values and dividing by the number of values."
+  },
+  {
+    "questions": [
+      "What is ratio?",
+      "Can you explain ratio?",
+      "Tell me about ratio.",
+      "How does ratio work?",
+      "Can you help me with ratio?"
+    ],
+    "keywords": [
+      "can you explain ratio",
+      "can you help me with ratio",
+      "how does ratio work",
+      "ratio",
+      "tell me about ratio.",
+      "what is ratio"
+    ],
+    "answer": "A ratio compares quantities. Ratios can be simplified by dividing both parts by a common factor."
+  },
+  {
+    "questions": [
+      "What is probability?",
+      "Can you explain probability?",
+      "Tell me about probability.",
+      "How does probability work?",
+      "Can you help me with probability?"
+    ],
+    "keywords": [
+      "can you explain probability",
+      "can you help me with probability",
+      "how does probability work",
+      "probability",
+      "tell me about probability.",
+      "what is probability"
+    ],
+    "answer": "Probability measures uncertainty from 0 to 1, or 0% to 100%, under a defined model or set of possible outcomes."
+  },
+  {
+    "questions": [
+      "What is algebra?",
+      "Can you explain algebra?",
+      "Tell me about algebra.",
+      "How does algebra work?",
+      "Can you help me with algebra?"
+    ],
+    "keywords": [
+      "algebra",
+      "can you explain algebra",
+      "can you help me with algebra",
+      "how does algebra work",
+      "tell me about algebra.",
+      "what is algebra"
+    ],
+    "answer": "Algebra uses symbols to represent quantities and relationships. Solving an equation means finding values that make the equation true."
+  },
+  {
+    "questions": [
+      "What is geometry?",
+      "Can you explain geometry?",
+      "Tell me about geometry.",
+      "How does geometry work?",
+      "Can you help me with geometry?"
+    ],
+    "keywords": [
+      "can you explain geometry",
+      "can you help me with geometry",
+      "geometry",
+      "how does geometry work",
+      "tell me about geometry.",
+      "what is geometry"
+    ],
+    "answer": "Geometry studies shapes, sizes, distances, angles, areas, and volumes. Draw a diagram when it helps identify relationships."
+  },
+  {
+    "questions": [
+      "What is statistics?",
+      "Can you explain statistics?",
+      "Tell me about statistics.",
+      "How does statistics work?",
+      "Can you help me with statistics?"
+    ],
+    "keywords": [
+      "can you explain statistics",
+      "can you help me with statistics",
+      "how does statistics work",
+      "statistics",
+      "tell me about statistics.",
+      "what is statistics"
+    ],
+    "answer": "Statistics involves collecting, summarizing, analyzing, and interpreting data. Measures such as mean, median, spread, and uncertainty answer different questions."
+  },
+  {
+    "questions": [
+      "What is programming advice?",
+      "Can you explain programming advice?",
+      "Tell me about programming advice.",
+      "How does programming advice work?",
+      "Can you help me with programming advice?"
+    ],
+    "keywords": [
+      "advice",
+      "can you explain programming advice",
+      "can you help me with programming advice",
+      "how does programming advice work",
+      "programming",
+      "tell me about programming advice.",
+      "what is programming advice"
+    ],
+    "answer": "When coding, break the problem into smaller parts, define inputs and outputs, test assumptions, and make one change at a time when debugging."
+  },
+  {
+    "questions": [
+      "What is algorithm?",
+      "Can you explain algorithm?",
+      "Tell me about algorithm.",
+      "How does algorithm work?",
+      "Can you help me with algorithm?"
+    ],
+    "keywords": [
+      "algorithm",
+      "can you explain algorithm",
+      "can you help me with algorithm",
+      "how does algorithm work",
+      "tell me about algorithm.",
+      "what is algorithm"
+    ],
+    "answer": "An algorithm is a step-by-step procedure for solving a problem or transforming inputs into outputs."
+  },
+  {
+    "questions": [
+      "What is data structures?",
+      "Can you explain data structures?",
+      "Tell me about data structures.",
+      "How does data structures work?",
+      "Can you help me with data structures?"
+    ],
+    "keywords": [
+      "can you explain data structures",
+      "can you help me with data structures",
+      "data",
+      "how does data structures work",
+      "structures",
+      "tell me about data structures.",
+      "what is data structures"
+    ],
+    "answer": "Data structures organize data for efficient operations. Common examples include arrays, linked lists, stacks, queues, hash tables, trees, and graphs."
+  },
+  {
+    "questions": [
+      "What is complexity?",
+      "Can you explain complexity?",
+      "Tell me about complexity.",
+      "How does complexity work?",
+      "Can you help me with complexity?"
+    ],
+    "keywords": [
+      "can you explain complexity",
+      "can you help me with complexity",
+      "complexity",
+      "how does complexity work",
+      "tell me about complexity.",
+      "what is complexity"
+    ],
+    "answer": "Algorithmic complexity describes how resource use grows with input size. Big-O notation is commonly used to describe asymptotic growth."
+  },
+  {
+    "questions": [
+      "What is frontend?",
+      "Can you explain frontend?",
+      "Tell me about frontend.",
+      "How does frontend work?",
+      "Can you help me with frontend?"
+    ],
+    "keywords": [
+      "can you explain frontend",
+      "can you help me with frontend",
+      "frontend",
+      "how does frontend work",
+      "tell me about frontend.",
+      "what is frontend"
+    ],
+    "answer": "Frontend development builds the part of a web application users interact with, including structure, styling, interaction, state, and accessibility."
+  },
+  {
+    "questions": [
+      "What is backend?",
+      "Can you explain backend?",
+      "Tell me about backend.",
+      "How does backend work?",
+      "Can you help me with backend?"
+    ],
+    "keywords": [
+      "backend",
+      "can you explain backend",
+      "can you help me with backend",
+      "how does backend work",
+      "tell me about backend.",
+      "what is backend"
+    ],
+    "answer": "Backend development handles server-side logic, data access, authentication, integrations, and APIs that support an application."
+  },
+  {
+    "questions": [
+      "What is deployment?",
+      "Can you explain deployment?",
+      "Tell me about deployment.",
+      "How does deployment work?",
+      "Can you help me with deployment?"
+    ],
+    "keywords": [
+      "can you explain deployment",
+      "can you help me with deployment",
+      "deployment",
+      "how does deployment work",
+      "tell me about deployment.",
+      "what is deployment"
+    ],
+    "answer": "Deployment moves an application into an environment where users can access it. It usually involves builds, configuration, domains, monitoring, and rollback plans."
+  },
+  {
+    "questions": [
+      "What is domain?",
+      "Can you explain domain?",
+      "Tell me about domain.",
+      "How does domain work?",
+      "Can you help me with domain?"
+    ],
+    "keywords": [
+      "can you explain domain",
+      "can you help me with domain",
+      "domain",
+      "how does domain work",
+      "tell me about domain.",
+      "what is domain"
+    ],
+    "answer": "A domain is a human-readable name used to locate an internet service. A domain is registered through a registrar and connected to services using DNS."
+  },
+  {
+    "questions": [
+      "What is DNS?",
+      "Can you explain DNS?",
+      "Tell me about DNS.",
+      "How does DNS work?",
+      "Can you help me with DNS?"
+    ],
+    "keywords": [
+      "can you explain dns",
+      "can you help me with dns",
+      "dns",
+      "how does dns work",
+      "tell me about dns.",
+      "what is dns"
+    ],
+    "answer": "DNS translates domain names into information such as IP addresses or other records used to locate internet services."
+  },
+  {
+    "questions": [
+      "What is hosting?",
+      "Can you explain hosting?",
+      "Tell me about hosting.",
+      "How does hosting work?",
+      "Can you help me with hosting?"
+    ],
+    "keywords": [
+      "can you explain hosting",
+      "can you help me with hosting",
+      "hosting",
+      "how does hosting work",
+      "tell me about hosting.",
+      "what is hosting"
+    ],
+    "answer": "Web hosting provides infrastructure where website files or applications run so they can be reached over the internet."
+  },
+  {
+    "questions": [
+      "What is SSL?",
+      "Can you explain SSL?",
+      "Tell me about SSL.",
+      "How does SSL work?",
+      "Can you help me with SSL?"
+    ],
+    "keywords": [
+      "can you explain ssl",
+      "can you help me with ssl",
+      "how does ssl work",
+      "ssl",
+      "tell me about ssl.",
+      "what is ssl"
+    ],
+    "answer": "TLS encrypts data in transit between a client and server. Websites commonly use HTTPS to provide encrypted connections and server authentication."
+  },
+  {
+    "questions": [
+      "What is browser?",
+      "Can you explain browser?",
+      "Tell me about browser.",
+      "How does browser work?",
+      "Can you help me with browser?"
+    ],
+    "keywords": [
+      "browser",
+      "can you explain browser",
+      "can you help me with browser",
+      "how does browser work",
+      "tell me about browser.",
+      "what is browser"
+    ],
+    "answer": "A web browser retrieves resources from the web and renders HTML, CSS, JavaScript, images, and other content for the user."
+  },
+  {
+    "questions": [
+      "What is cookies?",
+      "Can you explain cookies?",
+      "Tell me about cookies.",
+      "How does cookies work?",
+      "Can you help me with cookies?"
+    ],
+    "keywords": [
+      "can you explain cookies",
+      "can you help me with cookies",
+      "cookies",
+      "how does cookies work",
+      "tell me about cookies.",
+      "what is cookies"
+    ],
+    "answer": "Cookies are small pieces of data stored by a browser and sent with applicable requests. They can support sessions, preferences, and other functions."
+  },
+  {
+    "questions": [
+      "What is local stoRAGe?",
+      "Can you explain local stoRAGe?",
+      "Tell me about local stoRAGe.",
+      "How does local stoRAGe work?",
+      "Can you help me with local stoRAGe?"
+    ],
+    "keywords": [
+      "can you explain local storage",
+      "can you help me with local storage",
+      "how does local storage work",
+      "local",
+      "storage",
+      "tell me about local storage.",
+      "what is local storage"
+    ],
+    "answer": "Web localStorage lets a site store string data in the browser for later use on the same origin. It should not be treated as a secure place for secrets."
+  },
+  {
+    "questions": [
+      "What is JavaScript local app?",
+      "Can you explain JavaScript local app?",
+      "Tell me about JavaScript local app.",
+      "How does JavaScript local app work?",
+      "Can you help me with JavaScript local app?"
+    ],
+    "keywords": [
+      "app",
+      "can you explain javascript local app",
+      "can you help me with javascript local app",
+      "how does javascript local app work",
+      "javascript",
+      "local",
+      "tell me about javascript local app.",
+      "what is javascript local app"
+    ],
+    "answer": "A browser-only app can store small amounts of state locally, but sensitive data and protected API credentials should be handled on a secure backend."
+  },
+  {
+    "questions": [
+      "What is AI website architecture?",
+      "Can you explain AI website architecture?",
+      "Tell me about AI website architecture.",
+      "How does AI website architecture work?",
+      "Can you help me with AI website architecture?"
+    ],
+    "keywords": [
+      "ai",
+      "architecture",
+      "can you explain ai website architecture",
+      "can you help me with ai website architecture",
+      "how does ai website architecture work",
+      "tell me about ai website architecture.",
+      "website",
+      "what is ai website architecture"
+    ],
+    "answer": "A common AI web architecture has a browser frontend, a secure backend, an AI provider, optional retrieval storage, and logging or monitoring. Keep provider credentials on the server."
+  },
+  {
+    "questions": [
+      "What is AI chatbot upgrade?",
+      "Can you explain AI chatbot upgrade?",
+      "Tell me about AI chatbot upgrade.",
+      "How does AI chatbot upgrade work?",
+      "Can you help me with AI chatbot upgrade?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai chatbot upgrade",
+      "can you help me with ai chatbot upgrade",
+      "chatbot",
+      "how does ai chatbot upgrade work",
+      "tell me about ai chatbot upgrade.",
+      "upgrade",
+      "what is ai chatbot upgrade"
+    ],
+    "answer": "To turn a static chatbot into a real AI assistant, add a backend endpoint, call an AI model securely, handle errors and rate limits, and optionally add RAG for your own documents."
+  },
+  {
+    "questions": [
+      "What is rate limiting?",
+      "Can you explain rate limiting?",
+      "Tell me about rate limiting.",
+      "How does rate limiting work?",
+      "Can you help me with rate limiting?"
+    ],
+    "keywords": [
+      "can you explain rate limiting",
+      "can you help me with rate limiting",
+      "how does rate limiting work",
+      "limiting",
+      "rate",
+      "tell me about rate limiting.",
+      "what is rate limiting"
+    ],
+    "answer": "Rate limiting restricts how frequently a user or client can call a service. It helps control abuse, cost, and resource usage."
+  },
+  {
+    "questions": [
+      "What is authentication?",
+      "Can you explain authentication?",
+      "Tell me about authentication.",
+      "How does authentication work?",
+      "Can you help me with authentication?"
+    ],
+    "keywords": [
+      "authentication",
+      "can you explain authentication",
+      "can you help me with authentication",
+      "how does authentication work",
+      "tell me about authentication.",
+      "what is authentication"
+    ],
+    "answer": "Authentication verifies who a user is. Authorization determines what that authenticated user is allowed to do."
+  },
+  {
+    "questions": [
+      "What is authorization?",
+      "Can you explain authorization?",
+      "Tell me about authorization.",
+      "How does authorization work?",
+      "Can you help me with authorization?"
+    ],
+    "keywords": [
+      "authorization",
+      "can you explain authorization",
+      "can you help me with authorization",
+      "how does authorization work",
+      "tell me about authorization.",
+      "what is authorization"
+    ],
+    "answer": "Authorization checks permissions before allowing an action or access to a resource."
+  },
+  {
+    "questions": [
+      "What is database backups?",
+      "Can you explain database backups?",
+      "Tell me about database backups.",
+      "How does database backups work?",
+      "Can you help me with database backups?"
+    ],
+    "keywords": [
+      "backups",
+      "can you explain database backups",
+      "can you help me with database backups",
+      "database",
+      "how does database backups work",
+      "tell me about database backups.",
+      "what is database backups"
+    ],
+    "answer": "Back up databases regularly, protect backup access, keep appropriate retention periods, and test restoration instead of assuming backups work."
+  },
+  {
+    "questions": [
+      "What is logs?",
+      "Can you explain logs?",
+      "Tell me about logs.",
+      "How does logs work?",
+      "Can you help me with logs?"
+    ],
+    "keywords": [
+      "can you explain logs",
+      "can you help me with logs",
+      "how does logs work",
+      "logs",
+      "tell me about logs.",
+      "what is logs"
+    ],
+    "answer": "Application logs record useful events for debugging and operations. Avoid putting passwords, tokens, or unnecessary personal information into logs."
+  },
+  {
+    "questions": [
+      "What is monitoring?",
+      "Can you explain monitoring?",
+      "Tell me about monitoring.",
+      "How does monitoring work?",
+      "Can you help me with monitoring?"
+    ],
+    "keywords": [
+      "can you explain monitoring",
+      "can you help me with monitoring",
+      "how does monitoring work",
+      "monitoring",
+      "tell me about monitoring.",
+      "what is monitoring"
+    ],
+    "answer": "Monitoring tracks system health and behavior using metrics, logs, traces, alerts, and checks that reflect important user-facing failures."
+  },
+  {
+    "questions": [
+      "What is product reqUIrements?",
+      "Can you explain product reqUIrements?",
+      "Tell me about product reqUIrements.",
+      "How does product reqUIrements work?",
+      "Can you help me with product reqUIrements?"
+    ],
+    "keywords": [
+      "can you explain product requirements",
+      "can you help me with product requirements",
+      "how does product requirements work",
+      "product",
+      "requirements",
+      "tell me about product requirements.",
+      "what is product requirements"
+    ],
+    "answer": "Product requirements should describe the user problem, desired outcome, scope, constraints, acceptance criteria, and important non-goals."
+  },
+  {
+    "questions": [
+      "What is feature planning?",
+      "Can you explain feature planning?",
+      "Tell me about feature planning.",
+      "How does feature planning work?",
+      "Can you help me with feature planning?"
+    ],
+    "keywords": [
+      "can you explain feature planning",
+      "can you help me with feature planning",
+      "feature",
+      "how does feature planning work",
+      "planning",
+      "tell me about feature planning.",
+      "what is feature planning"
+    ],
+    "answer": "For a feature, define the user need, expected behavior, edge cases, dependencies, acceptance criteria, and how success will be measured."
+  },
+  {
+    "questions": [
+      "What is MVP?",
+      "Can you explain MVP?",
+      "Tell me about MVP.",
+      "How does MVP work?",
+      "Can you help me with MVP?"
+    ],
+    "keywords": [
+      "can you explain mvp",
+      "can you help me with mvp",
+      "how does mvp work",
+      "mvp",
+      "tell me about mvp.",
+      "what is mvp"
+    ],
+    "answer": "A minimum viable product is a small version that tests an important assumption with real users while avoiding unnecessary scope."
+  },
+  {
+    "questions": [
+      "What is user feedback?",
+      "Can you explain user feedback?",
+      "Tell me about user feedback.",
+      "How does user feedback work?",
+      "Can you help me with user feedback?"
+    ],
+    "keywords": [
+      "can you explain user feedback",
+      "can you help me with user feedback",
+      "feedback",
+      "how does user feedback work",
+      "tell me about user feedback.",
+      "user",
+      "what is user feedback"
+    ],
+    "answer": "Good user feedback is specific and connected to observed behavior or outcomes. Look for repeated patterns rather than treating every request as equally important."
+  },
+  {
+    "questions": [
+      "What is analytics?",
+      "Can you explain analytics?",
+      "Tell me about analytics.",
+      "How does analytics work?",
+      "Can you help me with analytics?"
+    ],
+    "keywords": [
+      "analytics",
+      "can you explain analytics",
+      "can you help me with analytics",
+      "how does analytics work",
+      "tell me about analytics.",
+      "what is analytics"
+    ],
+    "answer": "Analytics can show how people use a product, but metrics need context. Define events and success measures before collecting large amounts of data."
+  },
+  {
+    "questions": [
+      "What is A/B testing?",
+      "Can you explain A/B testing?",
+      "Tell me about A/B testing.",
+      "How does A/B testing work?",
+      "Can you help me with A/B testing?"
+    ],
+    "keywords": [
+      "a",
+      "b",
+      "can you explain a/b testing",
+      "can you help me with a/b testing",
+      "how does a/b testing work",
+      "tell me about a/b testing.",
+      "testing",
+      "what is a/b testing"
+    ],
+    "answer": "A/B testing compares variants under a defined experiment. Reliable interpretation requires careful measurement, adequate sample size, and attention to confounding factors."
+  },
+  {
+    "questions": [
+      "What is accessibility testing?",
+      "Can you explain accessibility testing?",
+      "Tell me about accessibility testing.",
+      "How does accessibility testing work?",
+      "Can you help me with accessibility testing?"
+    ],
+    "keywords": [
+      "accessibility",
+      "can you explain accessibility testing",
+      "can you help me with accessibility testing",
+      "how does accessibility testing work",
+      "tell me about accessibility testing.",
+      "testing",
+      "what is accessibility testing"
+    ],
+    "answer": "Accessibility testing can combine keyboard checks, screen-reader testing, automated tools, contrast checks, and testing with people with disabilities."
+  },
+  {
+    "questions": [
+      "What is responsive testing?",
+      "Can you explain responsive testing?",
+      "Tell me about responsive testing.",
+      "How does responsive testing work?",
+      "Can you help me with responsive testing?"
+    ],
+    "keywords": [
+      "can you explain responsive testing",
+      "can you help me with responsive testing",
+      "how does responsive testing work",
+      "responsive",
+      "tell me about responsive testing.",
+      "testing",
+      "what is responsive testing"
+    ],
+    "answer": "Test important layouts at multiple widths and with different input methods. Watch for overflow, tiny controls, hidden content, and awkward navigation."
+  },
+  {
+    "questions": [
+      "What is image optimization?",
+      "Can you explain image optimization?",
+      "Tell me about image optimization.",
+      "How does image optimization work?",
+      "Can you help me with image optimization?"
+    ],
+    "keywords": [
+      "can you explain image optimization",
+      "can you help me with image optimization",
+      "how does image optimization work",
+      "image",
+      "optimization",
+      "tell me about image optimization.",
+      "what is image optimization"
+    ],
+    "answer": "Use appropriately sized images, modern formats when supported, responsive images, and lazy loading where it makes sense."
+  },
+  {
+    "questions": [
+      "What is video website?",
+      "Can you explain video website?",
+      "Tell me about video website.",
+      "How does video website work?",
+      "Can you help me with video website?"
+    ],
+    "keywords": [
+      "can you explain video website",
+      "can you help me with video website",
+      "how does video website work",
+      "tell me about video website.",
+      "video",
+      "website",
+      "what is video website"
+    ],
+    "answer": "Use compressed, appropriately sized video and provide controls, captions where needed, and a fallback or poster image."
+  },
+  {
+    "questions": [
+      "What is contact page?",
+      "Can you explain contact page?",
+      "Tell me about contact page.",
+      "How does contact page work?",
+      "Can you help me with contact page?"
+    ],
+    "keywords": [
+      "can you explain contact page",
+      "can you help me with contact page",
+      "contact",
+      "how does contact page work",
+      "page",
+      "tell me about contact page.",
+      "what is contact page"
+    ],
+    "answer": "A contact page should clearly state how users can reach you, what information is needed, expected response time when relevant, and any privacy considerations."
+  },
+  {
+    "questions": [
+      "What is about page?",
+      "Can you explain about page?",
+      "Tell me about about page.",
+      "How does about page work?",
+      "Can you help me with about page?"
+    ],
+    "keywords": [
+      "about",
+      "can you explain about page",
+      "can you help me with about page",
+      "how does about page work",
+      "page",
+      "tell me about about page.",
+      "what is about page"
+    ],
+    "answer": "An about page can explain who you are, what you do, why the project exists, and useful evidence such as experience or work examples."
+  },
+  {
+    "questions": [
+      "What is portfolio?",
+      "Can you explain portfolio?",
+      "Tell me about portfolio.",
+      "How does portfolio work?",
+      "Can you help me with portfolio?"
+    ],
+    "keywords": [
+      "can you explain portfolio",
+      "can you help me with portfolio",
+      "how does portfolio work",
+      "portfolio",
+      "tell me about portfolio.",
+      "what is portfolio"
+    ],
+    "answer": "A portfolio is stronger when each project explains the problem, your contribution, process, result, and relevant screenshots or links."
+  },
+  {
+    "questions": [
+      "What is pricing page?",
+      "Can you explain pricing page?",
+      "Tell me about pricing page.",
+      "How does pricing page work?",
+      "Can you help me with pricing page?"
+    ],
+    "keywords": [
+      "can you explain pricing page",
+      "can you help me with pricing page",
+      "how does pricing page work",
+      "page",
+      "pricing",
+      "tell me about pricing page.",
+      "what is pricing page"
+    ],
+    "answer": "A pricing page should make the offer, included scope, important exclusions, and next step clear. Avoid hiding essential conditions."
+  },
+  {
+    "questions": [
+      "What is client proposal?",
+      "Can you explain client proposal?",
+      "Tell me about client proposal.",
+      "How does client proposal work?",
+      "Can you help me with client proposal?"
+    ],
+    "keywords": [
+      "can you explain client proposal",
+      "can you help me with client proposal",
+      "client",
+      "how does client proposal work",
+      "proposal",
+      "tell me about client proposal.",
+      "what is client proposal"
+    ],
+    "answer": "A proposal can include objectives, scope, deliverables, timeline, assumptions, price, payment terms, revision policy, and acceptance steps."
+  },
+  {
+    "questions": [
+      "What is project scope?",
+      "Can you explain project scope?",
+      "Tell me about project scope.",
+      "How does project scope work?",
+      "Can you help me with project scope?"
+    ],
+    "keywords": [
+      "can you explain project scope",
+      "can you help me with project scope",
+      "how does project scope work",
+      "project",
+      "scope",
+      "tell me about project scope.",
+      "what is project scope"
+    ],
+    "answer": "Scope defines what is included and excluded. Written scope reduces misunderstandings and makes changes easier to manage."
+  },
+  {
+    "questions": [
+      "What is deadline?",
+      "Can you explain deadline?",
+      "Tell me about deadline.",
+      "How does deadline work?",
+      "Can you help me with deadline?"
+    ],
+    "keywords": [
+      "can you explain deadline",
+      "can you help me with deadline",
+      "deadline",
+      "how does deadline work",
+      "tell me about deadline.",
+      "what is deadline"
+    ],
+    "answer": "A useful deadline includes a specific date or time, the definition of done, dependencies, and enough buffer for review and unexpected issues."
+  },
+  {
+    "questions": [
+      "What is team communication?",
+      "Can you explain team communication?",
+      "Tell me about team communication.",
+      "How does team communication work?",
+      "Can you help me with team communication?"
+    ],
+    "keywords": [
+      "can you explain team communication",
+      "can you help me with team communication",
+      "communication",
+      "how does team communication work",
+      "team",
+      "tell me about team communication.",
+      "what is team communication"
+    ],
+    "answer": "Good team communication is concise, contextual, respectful, and explicit about decisions, owners, and next actions."
+  },
+  {
+    "questions": [
+      "What is meeting agenda?",
+      "Can you explain meeting agenda?",
+      "Tell me about meeting agenda.",
+      "How does meeting agenda work?",
+      "Can you help me with meeting agenda?"
+    ],
+    "keywords": [
+      "agenda",
+      "can you explain meeting agenda",
+      "can you help me with meeting agenda",
+      "how does meeting agenda work",
+      "meeting",
+      "tell me about meeting agenda.",
+      "what is meeting agenda"
+    ],
+    "answer": "A useful agenda lists the purpose, topics, decisions needed, relevant preparation, and expected outcomes."
+  },
+  {
+    "questions": [
+      "What is remote work?",
+      "Can you explain remote work?",
+      "Tell me about remote work.",
+      "How does remote work work?",
+      "Can you help me with remote work?"
+    ],
+    "keywords": [
+      "can you explain remote work",
+      "can you help me with remote work",
+      "how does remote work work",
+      "remote",
+      "tell me about remote work.",
+      "what is remote work",
+      "work"
+    ],
+    "answer": "Remote work benefits from clear written communication, shared documentation, predictable availability, and explicit ownership of tasks."
+  },
+  {
+    "questions": [
+      "What is customer faq?",
+      "Can you explain customer faq?",
+      "Tell me about customer faq.",
+      "How does customer faq work?",
+      "Can you help me with customer faq?"
+    ],
+    "keywords": [
+      "can you explain customer faq",
+      "can you help me with customer faq",
+      "customer",
+      "faq",
+      "how does customer faq work",
+      "tell me about customer faq.",
+      "what is customer faq"
+    ],
+    "answer": "An FAQ should answer recurring customer questions in plain language and be easy to search and update."
+  },
+  {
+    "questions": [
+      "What is website copy?",
+      "Can you explain website copy?",
+      "Tell me about website copy.",
+      "How does website copy work?",
+      "Can you help me with website copy?"
+    ],
+    "keywords": [
+      "can you explain website copy",
+      "can you help me with website copy",
+      "copy",
+      "how does website copy work",
+      "tell me about website copy.",
+      "website",
+      "what is website copy"
+    ],
+    "answer": "Website copy should quickly explain who the product is for, the problem it solves, why it is credible, and what the visitor should do next."
+  },
+  {
+    "questions": [
+      "What is call to action?",
+      "Can you explain call to action?",
+      "Tell me about call to action.",
+      "How does call to action work?",
+      "Can you help me with call to action?"
+    ],
+    "keywords": [
+      "action",
+      "call",
+      "can you explain call to action",
+      "can you help me with call to action",
+      "how does call to action work",
+      "tell me about call to action.",
+      "to",
+      "what is call to action"
+    ],
+    "answer": "A call to action tells the user what to do next, such as start, contact, buy, book, or learn more. Specific wording is usually clearer than vague labels."
+  },
+  {
+    "questions": [
+      "What is error message?",
+      "Can you explain error message?",
+      "Tell me about error message.",
+      "How does error message work?",
+      "Can you help me with error message?"
+    ],
+    "keywords": [
+      "can you explain error message",
+      "can you help me with error message",
+      "error",
+      "how does error message work",
+      "message",
+      "tell me about error message.",
+      "what is error message"
+    ],
+    "answer": "A good error message explains what went wrong, what the user can do, and whether any data was saved."
+  },
+  {
+    "questions": [
+      "What is empty state?",
+      "Can you explain empty state?",
+      "Tell me about empty state.",
+      "How does empty state work?",
+      "Can you help me with empty state?"
+    ],
+    "keywords": [
+      "can you explain empty state",
+      "can you help me with empty state",
+      "empty",
+      "how does empty state work",
+      "state",
+      "tell me about empty state.",
+      "what is empty state"
+    ],
+    "answer": "An empty state should explain why there is no content yet and provide a useful next action."
+  },
+  {
+    "questions": [
+      "What is loading state?",
+      "Can you explain loading state?",
+      "Tell me about loading state.",
+      "How does loading state work?",
+      "Can you help me with loading state?"
+    ],
+    "keywords": [
+      "can you explain loading state",
+      "can you help me with loading state",
+      "how does loading state work",
+      "loading",
+      "state",
+      "tell me about loading state.",
+      "what is loading state"
+    ],
+    "answer": "A loading state should reassure users that work is in progress and, for longer operations, communicate meaningful progress or allow cancellation when possible."
+  },
+  {
+    "questions": [
+      "What is dark mode?",
+      "Can you explain dark mode?",
+      "Tell me about dark mode.",
+      "How does dark mode work?",
+      "Can you help me with dark mode?"
+    ],
+    "keywords": [
+      "can you explain dark mode",
+      "can you help me with dark mode",
+      "dark",
+      "how does dark mode work",
+      "mode",
+      "tell me about dark mode.",
+      "what is dark mode"
+    ],
+    "answer": "Dark mode changes the visual theme for lower-light environments or user preference. Maintain contrast and test all states, not just the main screen."
+  },
+  {
+    "questions": [
+      "What is notifications UI?",
+      "Can you explain notifications UI?",
+      "Tell me about notifications UI.",
+      "How does notifications UI work?",
+      "Can you help me with notifications UI?"
+    ],
+    "keywords": [
+      "can you explain notifications ui",
+      "can you help me with notifications ui",
+      "how does notifications ui work",
+      "notifications",
+      "tell me about notifications ui.",
+      "ui",
+      "what is notifications ui"
+    ],
+    "answer": "Notifications should be timely, relevant, dismissible when appropriate, and accessible. Avoid interrupting users for low-priority information."
+  },
+  {
+    "questions": [
+      "What is privacy policy?",
+      "Can you explain privacy policy?",
+      "Tell me about privacy policy.",
+      "How does privacy policy work?",
+      "Can you help me with privacy policy?"
+    ],
+    "keywords": [
+      "can you explain privacy policy",
+      "can you help me with privacy policy",
+      "how does privacy policy work",
+      "policy",
+      "privacy",
+      "tell me about privacy policy.",
+      "what is privacy policy"
+    ],
+    "answer": "A privacy policy explains relevant data practices. Its legal requirements depend on jurisdiction and the service, so legal review may be appropriate."
+  },
+  {
+    "questions": [
+      "What is terms of service?",
+      "Can you explain terms of service?",
+      "Tell me about terms of service.",
+      "How does terms of service work?",
+      "Can you help me with terms of service?"
+    ],
+    "keywords": [
+      "can you explain terms of service",
+      "can you help me with terms of service",
+      "how does terms of service work",
+      "of",
+      "service",
+      "tell me about terms of service.",
+      "terms",
+      "what is terms of service"
+    ],
+    "answer": "Terms of service define rules for using a service and related responsibilities. Requirements and enforceability depend on jurisdiction and circumstances."
+  },
+  {
+    "questions": [
+      "What is legal disclaimer?",
+      "Can you explain legal disclaimer?",
+      "Tell me about legal disclaimer.",
+      "How does legal disclaimer work?",
+      "Can you help me with legal disclaimer?"
+    ],
+    "keywords": [
+      "can you explain legal disclaimer",
+      "can you help me with legal disclaimer",
+      "disclaimer",
+      "how does legal disclaimer work",
+      "legal",
+      "tell me about legal disclaimer.",
+      "what is legal disclaimer"
+    ],
+    "answer": "A disclaimer can clarify limitations or intended use, but it does not automatically remove legal obligations or make inaccurate claims acceptable."
+  },
+  {
+    "questions": [
+      "What is medical information?",
+      "Can you explain medical information?",
+      "Tell me about medical information.",
+      "How does medical information work?",
+      "Can you help me with medical information?"
+    ],
+    "keywords": [
+      "can you explain medical information",
+      "can you help me with medical information",
+      "how does medical information work",
+      "information",
+      "medical",
+      "tell me about medical information.",
+      "what is medical information"
+    ],
+    "answer": "General health information can help with education, but diagnosis and treatment decisions should be made with an appropriate healthcare professional, especially for urgent or serious symptoms."
+  },
+  {
+    "questions": [
+      "What is emergency?",
+      "Can you explain emergency?",
+      "Tell me about emergency.",
+      "How does emergency work?",
+      "Can you help me with emergency?"
+    ],
+    "keywords": [
+      "can you explain emergency",
+      "can you help me with emergency",
+      "emergency",
+      "how does emergency work",
+      "tell me about emergency.",
+      "what is emergency"
+    ],
+    "answer": "If someone faces an immediate threat to life or safety, contact local emergency services or a qualified professional rather than relying on an AI chatbot."
+  },
+  {
+    "questions": [
+      "What is current information?",
+      "Can you explain current information?",
+      "Tell me about current information.",
+      "How does current information work?",
+      "Can you help me with current information?"
+    ],
+    "keywords": [
+      "can you explain current information",
+      "can you help me with current information",
+      "current",
+      "how does current information work",
+      "information",
+      "tell me about current information.",
+      "what is current information"
+    ],
+    "answer": "A static knowledge base cannot know what happened today unless it is updated. For current news, prices, schedules, laws, or other changing facts, use live sources."
+  },
+  {
+    "questions": [
+      "What is weather?",
+      "Can you explain weather?",
+      "Tell me about weather.",
+      "How does weather work?",
+      "Can you help me with weather?"
+    ],
+    "keywords": [
+      "can you explain weather",
+      "can you help me with weather",
+      "how does weather work",
+      "tell me about weather.",
+      "weather",
+      "what is weather"
+    ],
+    "answer": "Weather changes over time and by location. For a current forecast, use a live weather service and specify the location and relevant time period."
+  },
+  {
+    "questions": [
+      "What is news?",
+      "Can you explain news?",
+      "Tell me about news.",
+      "How does news work?",
+      "Can you help me with news?"
+    ],
+    "keywords": [
+      "can you explain news",
+      "can you help me with news",
+      "how does news work",
+      "news",
+      "tell me about news.",
+      "what is news"
+    ],
+    "answer": "News is time-sensitive. For current events, check recent reporting from reputable sources and distinguish reported facts from analysis or opinion."
+  },
+  {
+    "questions": [
+      "What is politics?",
+      "Can you explain politics?",
+      "Tell me about politics.",
+      "How does politics work?",
+      "Can you help me with politics?"
+    ],
+    "keywords": [
+      "can you explain politics",
+      "can you help me with politics",
+      "how does politics work",
+      "politics",
+      "tell me about politics.",
+      "what is politics"
+    ],
+    "answer": "Political information should be checked against current official sources and reputable reporting. A useful comparison can describe documented positions and records without telling you how to vote."
+  },
+  {
+    "questions": [
+      "What is research?",
+      "Can you explain research?",
+      "Tell me about research.",
+      "How does research work?",
+      "Can you help me with research?"
+    ],
+    "keywords": [
+      "can you explain research",
+      "can you help me with research",
+      "how does research work",
+      "research",
+      "tell me about research.",
+      "what is research"
+    ],
+    "answer": "Good research starts with a precise question, uses relevant primary or authoritative sources where possible, records dates and assumptions, and compares conflicting evidence."
+  },
+  {
+    "questions": [
+      "What is source quality?",
+      "Can you explain source quality?",
+      "Tell me about source quality.",
+      "How does source quality work?",
+      "Can you help me with source quality?"
+    ],
+    "keywords": [
+      "can you explain source quality",
+      "can you help me with source quality",
+      "how does source quality work",
+      "quality",
+      "source",
+      "tell me about source quality.",
+      "what is source quality"
+    ],
+    "answer": "Source quality depends on factors such as authority, evidence, methodology, transparency, recency, and whether claims are independently corroborated."
+  },
+  {
+    "questions": [
+      "What is citation?",
+      "Can you explain citation?",
+      "Tell me about citation.",
+      "How does citation work?",
+      "Can you help me with citation?"
+    ],
+    "keywords": [
+      "can you explain citation",
+      "can you help me with citation",
+      "citation",
+      "how does citation work",
+      "tell me about citation.",
+      "what is citation"
+    ],
+    "answer": "Citations help readers trace claims to sources. Cite the source closest to the factual claim and preserve enough detail for someone else to verify it."
+  },
+  {
+    "questions": [
+      "What is fact vs opinion?",
+      "Can you explain fact vs opinion?",
+      "Tell me about fact vs opinion.",
+      "How does fact vs opinion work?",
+      "Can you help me with fact vs opinion?"
+    ],
+    "keywords": [
+      "can you explain fact vs opinion",
+      "can you help me with fact vs opinion",
+      "fact",
+      "how does fact vs opinion work",
+      "opinion",
+      "tell me about fact vs opinion.",
+      "vs",
+      "what is fact vs opinion"
+    ],
+    "answer": "A fact is a claim that can be checked against evidence; an opinion is a judgment or interpretation. Some statements combine both and should be labeled carefully."
+  },
+  {
+    "questions": [
+      "What is uncertainty?",
+      "Can you explain uncertainty?",
+      "Tell me about uncertainty.",
+      "How does uncertainty work?",
+      "Can you help me with uncertainty?"
+    ],
+    "keywords": [
+      "can you explain uncertainty",
+      "can you help me with uncertainty",
+      "how does uncertainty work",
+      "tell me about uncertainty.",
+      "uncertainty",
+      "what is uncertainty"
+    ],
+    "answer": "When evidence is incomplete or conflicting, state what is known, what is uncertain, and what information would change the conclusion."
+  },
+  {
+    "questions": [
+      "What is privacy in ai?",
+      "Can you explain privacy in ai?",
+      "Tell me about privacy in ai.",
+      "How does privacy in ai work?",
+      "Can you help me with privacy in ai?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain privacy in ai",
+      "can you help me with privacy in ai",
+      "how does privacy in ai work",
+      "in",
+      "privacy",
+      "tell me about privacy in ai.",
+      "what is privacy in ai"
+    ],
+    "answer": "Avoid putting passwords, private keys, or unnecessary sensitive personal information into prompts or public AI tools. Review the service's data practices."
+  },
+  {
+    "questions": [
+      "What is AI bias?",
+      "Can you explain AI bias?",
+      "Tell me about AI bias.",
+      "How does AI bias work?",
+      "Can you help me with AI bias?"
+    ],
+    "keywords": [
+      "ai",
+      "bias",
+      "can you explain ai bias",
+      "can you help me with ai bias",
+      "how does ai bias work",
+      "tell me about ai bias.",
+      "what is ai bias"
+    ],
+    "answer": "AI systems can reflect biases in training data, evaluation, design, or use. Testing should include relevant groups and failure cases."
+  },
+  {
+    "questions": [
+      "What is AI safety?",
+      "Can you explain AI safety?",
+      "Tell me about AI safety.",
+      "How does AI safety work?",
+      "Can you help me with AI safety?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai safety",
+      "can you help me with ai safety",
+      "how does ai safety work",
+      "safety",
+      "tell me about ai safety.",
+      "what is ai safety"
+    ],
+    "answer": "Safer AI applications define allowed behavior, validate inputs and outputs where appropriate, protect secrets, limit abuse, and provide ways to recover from errors."
+  },
+  {
+    "questions": [
+      "What is prompt injection?",
+      "Can you explain prompt injection?",
+      "Tell me about prompt injection.",
+      "How does prompt injection work?",
+      "Can you help me with prompt injection?"
+    ],
+    "keywords": [
+      "can you explain prompt injection",
+      "can you help me with prompt injection",
+      "how does prompt injection work",
+      "injection",
+      "prompt",
+      "tell me about prompt injection.",
+      "what is prompt injection"
+    ],
+    "answer": "Prompt injection is an attempt to manipulate an AI system through untrusted instructions in user input or retrieved content. Treat external content as data and enforce permissions outside the model."
+  },
+  {
+    "questions": [
+      "What is content moderation?",
+      "Can you explain content moderation?",
+      "Tell me about content moderation.",
+      "How does content moderation work?",
+      "Can you help me with content moderation?"
+    ],
+    "keywords": [
+      "can you explain content moderation",
+      "can you help me with content moderation",
+      "content",
+      "how does content moderation work",
+      "moderation",
+      "tell me about content moderation.",
+      "what is content moderation"
+    ],
+    "answer": "Content moderation combines policies, detection, human review where appropriate, user reporting, and appeals or correction mechanisms."
+  },
+  {
+    "questions": [
+      "What is AI cost control?",
+      "Can you explain AI cost control?",
+      "Tell me about AI cost control.",
+      "How does AI cost control work?",
+      "Can you help me with AI cost control?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai cost control",
+      "can you help me with ai cost control",
+      "control",
+      "cost",
+      "how does ai cost control work",
+      "tell me about ai cost control.",
+      "what is ai cost control"
+    ],
+    "answer": "AI costs can be controlled by choosing an appropriate model, limiting unnecessary context, caching repeat work, rate limiting, monitoring usage, and setting budgets."
+  },
+  {
+    "questions": [
+      "What is AI latency?",
+      "Can you explain AI latency?",
+      "Tell me about AI latency.",
+      "How does AI latency work?",
+      "Can you help me with AI latency?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai latency",
+      "can you help me with ai latency",
+      "how does ai latency work",
+      "latency",
+      "tell me about ai latency.",
+      "what is ai latency"
+    ],
+    "answer": "AI response time can be improved by reducing unnecessary work, streaming output, using suitable models, parallelizing independent operations, and optimizing retrieval."
+  },
+  {
+    "questions": [
+      "What is AI memory?",
+      "Can you explain AI memory?",
+      "Tell me about AI memory.",
+      "How does AI memory work?",
+      "Can you help me with AI memory?"
+    ],
+    "keywords": [
+      "ai",
+      "can you explain ai memory",
+      "can you help me with ai memory",
+      "how does ai memory work",
+      "memory",
+      "tell me about ai memory.",
+      "what is ai memory"
+    ],
+    "answer": "An AI assistant can maintain context within a conversation, while longer-term memory requires deliberate storage and privacy controls. Do not assume a model remembers everything."
+  },
+  {
+    "questions": [
+      "What is conversation history?",
+      "Can you explain conversation history?",
+      "Tell me about conversation history.",
+      "How does conversation history work?",
+      "Can you help me with conversation history?"
+    ],
+    "keywords": [
+      "can you explain conversation history",
+      "can you help me with conversation history",
+      "conversation",
+      "history",
+      "how does conversation history work",
+      "tell me about conversation history.",
+      "what is conversation history"
+    ],
+    "answer": "Conversation history can provide context, but applications should decide what to store, how long to retain it, and how users can control or delete it."
+  },
+  {
+    "questions": [
+      "What is fallback response?",
+      "Can you explain fallback response?",
+      "Tell me about fallback response.",
+      "How does fallback response work?",
+      "Can you help me with fallback response?"
+    ],
+    "keywords": [
+      "can you explain fallback response",
+      "can you help me with fallback response",
+      "fallback",
+      "how does fallback response work",
+      "response",
+      "tell me about fallback response.",
+      "what is fallback response"
+    ],
+    "answer": "A fallback response should clearly say the system lacks the requested information and suggest a useful next step rather than inventing an answer."
+  },
+  {
+    "questions": [
+      "What is website chatbot fallback?",
+      "Can you explain website chatbot fallback?",
+      "Tell me about website chatbot fallback.",
+      "How does website chatbot fallback work?",
+      "Can you help me with website chatbot fallback?"
+    ],
+    "keywords": [
+      "can you explain website chatbot fallback",
+      "can you help me with website chatbot fallback",
+      "chatbot",
+      "fallback",
+      "how does website chatbot fallback work",
+      "tell me about website chatbot fallback.",
+      "website",
+      "what is website chatbot fallback"
+    ],
+    "answer": "If your static chatbot cannot match a question, show a helpful fallback and consider adding semantic search or a real AI backend rather than endlessly adding exact keyword rules."
+  },
+  {
+    "questions": [
+      "What is improving this assistant?",
+      "Can you explain improving this assistant?",
+      "Tell me about improving this assistant.",
+      "How does improving this assistant work?",
+      "Can you help me with improving this assistant?"
+    ],
+    "keywords": [
+      "assistant",
+      "can you explain improving this assistant",
+      "can you help me with improving this assistant",
+      "how does improving this assistant work",
+      "improving",
+      "tell me about improving this assistant.",
+      "this",
+      "what is improving this assistant"
+    ],
+    "answer": "For AP Assistant, the practical next step is to replace the small demo matcher with a backend AI call and optionally add RAG so your own documents can be searched before answering."
+  }
+];
+
+const FALLBACK_ANSWER = "I don't have enough information in my local knowledge base to answer that reliably. Try asking in a different way, or connect AP Assistant to a real AI backend for open-ended and current questions.";

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Assistant</title>
+<meta name="description" content="AP Assistant — your AI workspace by AP Web Designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<!-- data.js holds AP Assistant's knowledge base — see script.js for how it's used -->
+ <a href="https://anshprasad668-arch.github.io/ap-web-designer/"
+   class="floating-link-btn"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Open link">
+    🔗
+</a>
+<body>
+
+<div class="bg-stars"></div>
+<div class="bg-glow"></div>
+
+<!-- ===================== ONBOARDING MODAL ===================== -->
+<div id="onboardModal" class="onboard-overlay">
+  <div class="onboard-card">
+    <div class="onboard-mark"><img src="ap_logo.png.png" alt="AP Assistant logo"></div>
+    <h1>What should I call you?</h1>
+   
+    <input id="nameInput" type="text" placeholder="Enter your name…" maxlength="24" autocomplete="off" />
+    <button id="saveNameBtn">Save &amp; continue</button>
+  </div>
+</div>
+
+<!-- ===================== APP SHELL ===================== -->
+<div class="app-shell" id="appShell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+     <div class="logo">
+  <img src="ap_logo.png.png" alt="AP Web Designer logo" class="logo-img">
+  <span> AP Assistant</span>
+</div>
+      <button id="newChatBtn" class="new-chat-btn">+ New chat</button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-view="home">🏠 Home</a>
+      <a href="#" class="nav-item" data-view="projects">📁 Projects</a>
+      <a href="#" class="nav-item" data-view="tasks">✅ Tasks</a>
+    </nav>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Recent</div>
+      <div id="recentList" class="recent-list">
+        <div class="recent-empty">No conversations yet</div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" id="userAvatar">?</div>
+      <div class="user-meta">
+        <div id="userName" class="user-name">Guest</div>
+        <div class="user-plan">Made by Ansh</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Hero / home view -->
+    <section id="heroView" class="hero-view">
+      <div class="hero-greeting">
+        <span class="hero-star">✳</span>
+        <h1 id="greetingText">Heloo </h1>
+      </div>
+
+      <form id="chatForm" class="chat-box">
+        <input id="chatInput" type="text" placeholder="Ask AP Assistant anything…" autocomplete="off" required />
+        <button type="submit" id="sendBtn" aria-label="Send">➤</button>
+      </form>
+
+      <div class="quick-pills">
+        <button class="pill" data-prompt="Help me write something">✍️ Write</button>
+        <button class="pill" data-prompt="Teach me something new">📘 Learn</button>
+        <button class="pill" data-prompt="Help me with code">💻 Code</button>
+        <button class="pill" data-prompt="Give me life advice">🌱 Life stuff</button>
+        <button class="pill" data-prompt="Surprise me">💡 Surprise me</button>
+      </div>
+    </section>
+
+    <!-- Chat thread view (shown after first message) -->
+    <section id="chatView" class="chat-view">
+      <div id="chatWindow" class="chat-window"></div>
+
+      <form id="chatFormBottom" class="chat-box chat-box-bottom" autocomplete="off">
+        <input id="chatInputBottom" type="text" placeholder="Ask a follow-up…" autocomplete="off" required />
+        <button type="submit" aria-label="Send">➤</button>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
